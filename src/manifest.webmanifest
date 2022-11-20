@@ -1,0 +1,22 @@
+{
+    "name": "dexp",
+    "short_name": "dexp",
+    "theme_color": "#488aff",
+    "background_color": "#488aff",
+    "display": "standalone",
+    "scope": "./",
+    "start_url": "./",
+    "icons": [{
+            "src": "assets/dexp-logo.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "assets/dexp-logo@192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable any"
+        }
+    ]
+}

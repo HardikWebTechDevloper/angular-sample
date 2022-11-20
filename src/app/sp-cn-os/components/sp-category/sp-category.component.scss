@@ -1,0 +1,13 @@
+.item-active {
+  color: #1e81ce !important;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 10px;
+}
+.disable-cat {
+  pointer-events: none;
+  opacity: 0.5;
+}
+.cp {
+  cursor: pointer;
+}

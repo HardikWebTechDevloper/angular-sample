@@ -1,0 +1,125 @@
+.slider-details {
+  .owl-theme {
+    .owl-nav {
+      background-color: transparent;
+      padding: 0px;
+      position: absolute;
+      top: 50%;
+      margin-top: -21px;
+    }
+  }
+
+  .table-slider {
+    .table-carousel {
+      border: 0;
+      background-color: #fff !important;
+      .owl-theme {
+        .owl-stage-outer {
+          max-width: 75% !important;
+          // border: 1px solid red;
+          box-shadow: 2px 3px 10px #7777771a;
+        }
+        .owl-item {
+          padding: 15px 50px !important;
+        }
+      }
+    }
+
+    form {
+      .form-group {
+        input {
+          border: 0px;
+          border-bottom: 1px solid #b7b7b7;
+          max-width: 365px;
+          color: #464a53;
+          font-weight: bold;
+          font-size: 17px;
+          border-radius: 0;
+        }
+
+        &.edit {
+          position: relative;
+
+          img {
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            left: 380px;
+            bottom: 10px;
+          }
+        }
+      }
+      button {
+        background-color: #001f38;
+        max-width: 78px;
+        height: 27px;
+        opacity: 1;
+        font-size: 12px;
+        color: #ffffff;
+        line-height: 1.2;
+      }
+      span {
+        display: block;
+
+        img {
+          height: 20px;
+        }
+      }
+
+      .product-code {
+        font-size: 11px;
+        color: #a5a5a5;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      .product-name {
+        color: #464a53;
+        font-size: 17px;
+      }
+
+      .quality {
+        label {
+          color: #353535;
+          font-size: 11px;
+          font-weight: bold;
+        }
+
+        input {
+          border: 2px solid #cccccc;
+          height: 54px;
+          font-size: 24px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .form-submit p {
+    color: #818181;
+    font-size: 18px;
+  }
+}
+app-sp-grid {
+  width: 100%;
+}
+app-sp-category {
+  width: 100%;
+}
+app-sp-single-item {
+  width: 100%;
+}
+.openingstock-container {
+  padding: 0px 96px;
+}
+@media (max-width: 767px) {
+  .openingstock-container {
+    padding: 0px;
+  }
+}
+.mb-15 {
+  margin-bottom: 5rem !important;
+}
+.disbaleContent {
+  pointer-events: none;
+  opacity: 0.8;
+}

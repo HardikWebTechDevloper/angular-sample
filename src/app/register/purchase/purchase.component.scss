@@ -1,0 +1,222 @@
+.register-process-row {
+  margin-top: 35px;
+  .register-process {
+    display: flex;
+    .process-col {
+      margin-right: 145px;
+      position: relative;
+      &:last-child {
+        margin-right: 0px;
+      }
+      .process-iconset {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background-color: #efefef;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 100;
+      }
+      p {
+        font-size: 12px;
+        letter-spacing: 0.72px;
+        color: #000000;
+        text-transform: uppercase;
+        line-height: 32px;
+        text-align: center;
+        font-weight: 600;
+      }
+    }
+    .purchase-col {
+      &::after {
+        content: "";
+        background-color: #efefef;
+        height: 4px;
+        width: 140px;
+        position: absolute;
+        top: 27px;
+      }
+      .purchase-icon {
+        background: url(../../../assets/images/purchase-inactive.svg);
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .purchase-col.active-step1 {
+      .process-iconset {
+        background-color: #1e81ce;
+        .purchase-icon {
+          background: url(../../../assets/images/purchase-active.svg);
+        }
+      }
+      &::after {
+        background-color: #efefef;
+      }
+    }
+    .purchase-col.active {
+      .process-iconset {
+        background-color: #1e81ce;
+        .purchase-icon {
+          background: url(../../../assets/images/purchase-active.svg);
+        }
+      }
+      &::after {
+        background-color: #1e81ce;
+      }
+    }
+    .sales-col {
+      &::before {
+        content: "";
+        background-color: #efefef;
+        height: 4px;
+        width: 140px;
+        position: absolute;
+        top: 27px;
+        right: 0px;
+      }
+      .sales-icon {
+        background: url(../../../assets/images/sales-inactive.svg);
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .sales-col.active {
+      .process-iconset {
+        background-color: #1e81ce;
+        .sales-icon {
+          background: url(../../../assets/images/sales-active.svg);
+        }
+      }
+      &::before {
+        background-color: #1e81ce;
+      }
+    }
+  }
+  .register-date {
+    text-align: right;
+    p {
+      font-size: 17px;
+      letter-spacing: 0.54px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+}
+.validate-container {
+  margin: 60px auto 0px;
+  text-align: center;
+  h4 {
+    font-size: 32px;
+    line-height: 43px;
+    color: #353535;
+    margin-bottom: 40px;
+  }
+  .validate-btns {
+    display: inline-block;
+    margin: 0px 0px 20px;
+    .sp-btn,
+    .secondary-btn {
+      min-width: 105px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-right: 15px;
+      &::after {
+        display: none;
+      }
+    }
+  }
+  .validate-form {
+    margin: auto;
+    display: table;
+    form {
+      align-items: flex-start;
+      justify-content: center;
+      .form-group {
+        display: block;
+        margin-bottom: 0px;
+      }
+      .form-control {
+        width: 369px;
+        // margin-right: 25px;
+        height: 45px;
+        color: #000;
+        vertical-align: top;
+        &::placeholder {
+          color: #000;
+        }
+      }
+      p {
+        color: #ff5d5d;
+        font-size: 14px;
+        line-height: 21px;
+        font-weight: 600;
+        margin: 15px 0px 0px;
+        display: none;
+        width: 100%;
+      }
+    }
+    form.form-invalid {
+      .form-control {
+        border-color: #ff5d5d;
+      }
+      p {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .validate-container h4 {
+    font-size: 18px;
+    line-height: 28px;
+    max-width: 226px;
+    margin: 0 auto;
+  }
+  .register-process-row .register-date p {
+    font-size: 12px;
+    color: #001f38;
+    letter-spacing: 0.38px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .validate-container .validate-btns {
+    display: block;
+    margin: 0px 0px 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 110px;
+  }
+  .validate-btn {
+    display: block;
+    margin: 0px;
+    position: fixed;
+    width: 191px;
+    height: 45px;
+    font-weight: 400;
+    bottom: 110px;
+  }
+  .validate-container .validate-form {
+    width: 100%;
+  }
+  .validate-container {
+    margin: 20px auto 0px;
+  }
+  .validate-container .validate-form .form-control,
+  .validate-container .validate-form .form-group {
+    width: 100% !important;
+  }
+  .validate-container .validate-form form p {
+    font-size: 10px;
+    line-height: 16px;
+    text-align: left;
+  }
+  .register-process-row {
+    margin-top: 20px;
+  }
+}
+app-sp-grid {
+  width: 100%;
+}

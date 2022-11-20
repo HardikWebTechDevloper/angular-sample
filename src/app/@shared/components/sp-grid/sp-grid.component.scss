@@ -1,0 +1,139 @@
+.configuration-container {
+  margin: 20px 0px 0px;
+  .title {
+    font: normal normal normal 28px NunitoSans-Bold;
+    color: #001f38;
+  }
+  .form-row {
+    margin: 0;
+  }
+  .row1 {
+    margin-top: 10px;
+    label {
+      font: normal normal normal 17px NunitoSans-SemiBold;
+    }
+  }
+  .row2 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    color: #001f38;
+    .form-group {
+      &:first-child {
+        font: normal normal normal 28px NunitoSans-Bold;
+      }
+      &:last-child button {
+        width: 242px;
+        height: 45px;
+        border: 1px solid #1e9fce;
+        border-radius: 4px;
+        color: #1e9fce;
+        font: normal normal normal 14px NunitoSans-Bold;
+        text-transform: uppercase;
+        background-color: #fff;
+      }
+    }
+  }
+  .row3 {
+    .form-group {
+      font: normal normal normal 17px NunitoSans-SemiBold;
+      color: #001f38;
+      text-transform: uppercase;
+    }
+  }
+  .row4 {
+    label {
+      font: normal normal normal 21px NunitoSans-SemiBold;
+      margin-bottom: 10px;
+    }
+    input {
+      margin-right: 5px;
+    }
+    .form-check-inline {
+      display: flex;
+      align-items: baseline;
+    }
+  }
+}
+.store-profile-container button.active {
+  background-color: #24ba80;
+  color: #fff;
+}
+.configuration {
+  margin-bottom: 60px;
+}
+.configuration-btn {
+  margin-top: 50px;
+}
+.search-form .has-search .form-control-feedback img {
+  margin-top: 10px;
+}
+.search-form .has-search input:focus {
+  box-shadow: none;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  section .container-fluid,
+  footer .container-fluid {
+    padding: 15px;
+  }
+  .form-row .form-group:first-child {
+    margin-right: 30px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  section .container-fluid,
+  footer .container-fluid {
+    padding: 15px;
+  }
+  .store-profile-container button {
+    width: 100%;
+    height: 98px;
+    margin-bottom: 15px;
+  }
+  .form-group input {
+    width: 100% !important;
+  }
+  .store-profile-container {
+    flex-direction: column;
+  }
+  .form-row .form-group:first-child {
+    /* margin-right: 30px; */
+  }
+}
+.configuration-container {
+  form {
+    margin: 25px 0px 0px;
+    .form-check-inline {
+      margin-right: 35px;
+      .form-check-input {
+        width: 23px;
+        height: 23px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+.add-sku-product {
+  margin: 25px -15px 30px;
+}
+
+.disable-arrow {
+  pointer-events: none;
+}
+.bg-grey {
+  background: grey !important;
+}
+.header-active {
+  color: #1e81ce !important;
+}
+
+td {
+  text-align: center;
+}
+.cp {
+  cursor: pointer;
+}
+.editedRow {
+  background-color: #ffff0038 !important;
+}

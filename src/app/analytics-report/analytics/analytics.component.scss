@@ -1,0 +1,11 @@
+section .container-fluid {
+  padding: 0px 96px;
+}
+.height-300 {
+  height: 300px;
+}
+@media (max-width: 767px) {
+  section .container-fluid {
+    padding: 0px !important;
+  }
+}

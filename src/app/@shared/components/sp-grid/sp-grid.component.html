@@ -1,0 +1,194 @@
+<div class="col-sm-12 custom-table">
+  <div class="exceise-register-table table-responsive">
+    <table cellpadding="1" cellspacing="1" #spGrid>
+      <tr *ngFor="let head of headerData" [class]="head.className">
+        <td *ngFor="let subhead of head.subArr" [class]="subhead.className" [attr.colSpan]="subhead?.colSpan">
+          <span *ngIf="!subhead.searchSKU && !subhead.toggleHeader && !subhead.IsAllCheckbox">
+            {{ subhead.headerName }}</span
+          >
+          <span *ngIf="subhead.toggleHeader && !subhead.searchSKU">
+            <span (click)="toggleHeader()" class="cp" [ngClass]="{ 'header-active': toggleRowHeader }">
+              {{ subhead.headerName }}
+            </span>
+            <span>|</span>
+            <span (click)="toggleHeader()" class="cp" [ngClass]="{ 'header-active': !toggleRowHeader }"
+              >{{ subhead.subheaderName }}
+            </span>
+          </span>
+          <div class="form-group has-search" *ngIf="subhead.searchSKU">
+            <span class="form-control-feedback">
+              <img src="../../../assets/images/search-icon.png" class="mt-2" />
+            </span>
+            <input
+              id="searchSkucode"
+              type="text"
+              [(ngModel)]="searchString"
+              (keyup.enter)="searchBasedString(searchString)"
+              class="form-control"
+              placeholder="Search SKU code"
+            />
+          </div>
+          <div class="custom-control custom-checkbox" *ngIf="subhead.IsAllCheckbox">
+            <input
+              type="checkbox"
+              class="custom-control-input"
+              [(ngModel)]="selectAll"
+              (change)="selectAllItems()"
+              id="selectAll"
+              name="selectAll"
+            />
+            <label class="custom-control-label" for="selectAll">Select All</label>
+          </div>
+        </td>
+      </tr>
+      <!-- | filter:searchString -->
+      <ng-container *ngIf="manualPagination">
+        <tr *ngFor="let sku of skuproductList | slice: startIndex:endIndex | filter: searchString; let i = index">
+          <td *ngFor="let data of headerData[headerIndex].subArr" [class]="data.fieldClassName">
+            <span
+              *ngIf="
+                !data.inputField &&
+                !data.IsCheckbox &&
+                !data.addStock &&
+                !data.isDisabled &&
+                !data.toggleHeader &&
+                !data.isDate
+              "
+            >
+              {{ sku[data['fieldName']] }}
+            </span>
+            <span *ngIf="data.addStock">
+              {{ sku[data['fieldName']] + sku[data['addField']] }}
+            </span>
+            <span *ngIf="data.isDisabled">
+              {{ sku[data['fieldName']] }}
+            </span>
+            <span *ngIf="data.toggleHeader">
+              <span *ngIf="toggleRowHeader">
+                {{ sku[data['fieldName']] }}
+              </span>
+              <span *ngIf="!toggleRowHeader">
+                {{ sku[data['alternativeFieldName']] }}
+              </span>
+            </span>
+            <span *ngIf="data.isDate">
+              {{ sku[data['fieldName']] | date: 'dd MMM yyyy' }}
+            </span>
+            <span *ngIf="data.inputField && !data.IsCheckbox && !data.isDisabled">
+              <input
+                id="{{ data['fieldName'] }}{{ i }}"
+                (ngModelChange)="preTextChanged($event)"
+                [(ngModel)]="sku[data['fieldName']]"
+                type="text"
+                placeholder=""
+                class="form-control"
+                (keypress)="keyPressAlphaNumeric($event, data['fieldName'], data)"
+                (focus)="onFocus(sku, data.fieldName, sku[data['fieldName']], i, data)"
+                (focusout)="InputEdited(sku, data.fieldName, sku[data['fieldName']], i, data, $event)"
+              />
+            </span>
+            <div class="custom-control custom-checkbox" *ngIf="data.IsCheckbox">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                [(ngModel)]="sku.isSelected"
+                (change)="itemSelect(sku)"
+                id="sku{{ i }}"
+                name="sku{{ i }}"
+              />
+              <label class="custom-control-label" for="sku{{ i }}"></label>
+            </div>
+          </td>
+          <td *ngIf="editSKU" (click)="editRow(sku)"><img src="assets/images/edit.svg" class="img-fluid" /></td>
+        </tr>
+      </ng-container>
+      <ng-container *ngIf="!manualPagination">
+        <tr
+          *ngFor="let sku of skuproductList | filter: searchString; let i = index"
+          [ngClass]="{ editedRow: sku['rowValueEdited'] }"
+        >
+          <td *ngFor="let data of headerData[headerIndex].subArr" [class]="data.fieldClassName">
+            <span *ngIf="!data.inputField && !data.IsCheckbox && !data.addStock && !data.toggleHeader && !data.isDate">
+              {{ sku[data['fieldName']] }}
+            </span>
+            <span *ngIf="data.addStock">
+              {{ sku[data['fieldName']] + sku[data['addField']] }}
+            </span>
+            <span *ngIf="data.isDate">
+              {{ sku[data['fieldName']] | date: 'dd MMM yyyy' }}
+            </span>
+            <span *ngIf="data.toggleHeader">
+              <span *ngIf="toggleRowHeader">
+                {{ sku[data['fieldName']] }}
+              </span>
+              <span *ngIf="!toggleRowHeader">
+                {{ sku[data['alternativeFieldName']] }}
+              </span>
+            </span>
+            <span *ngIf="data.inputField && !data.IsCheckbox">
+              <input
+                id="{{ data['fieldName'] }}{{ i }}"
+                (ngModelChange)="preTextChanged($event)"
+                [(ngModel)]="sku[data['fieldName']]"
+                (ngModelChange)="postTestChanged($event)"
+                type="text"
+                placeholder=""
+                class="form-control"
+                (keypress)="keyPressAlphaNumeric($event, data['fieldName'], data)"
+                (focus)="onFocus(sku, data.fieldName, sku[data['fieldName']], i, data)"
+                (focusout)="InputEdited(sku, data.fieldName, sku[data['fieldName']], i, data, $event)"
+              />
+              <!-- (blur)="InputEdited(sku, data.fieldName, sku[data['fieldName']], i, data)" -->
+            </span>
+            <div class="custom-control custom-checkbox" *ngIf="data.IsCheckbox">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                [(ngModel)]="sku.isSelected"
+                (change)="itemSelect(sku)"
+                id="sku{{ i }}"
+                name="sku{{ i }}"
+              />
+              <label class="custom-control-label" for="sku{{ i }}"></label>
+            </div>
+          </td>
+          <td *ngIf="editSKU" (click)="editRow(sku)" width="50px">
+            <img src="assets/images/edit.svg" class="img-fluid" />
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+    <div *ngIf="skuproductList.length === 0" class="text-center">No data found</div>
+  </div>
+  <div class="row pagination-row pb-5" *ngIf="Ispagination && totalCount > 20">
+    <div class="col-12 col-md-8">
+      <!-- <ngb-pagination
+          [collectionSize]="totalCount"
+          [(page)]="page"
+          [boundaryLinks]="false"
+          [directionLinks]="false"
+        ></ngb-pagination> -->
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="pagination-arrows">
+        <!-- {{ totalCount }} ==== {{  disablefnt() }}={{ disablefnright() }} -->
+        <div
+          class="pagination-left"
+          *ngIf="!disablefnt()"
+          [ngClass]="{ 'disable-arrow': disablefnt() }"
+          (click)="prevPage()"
+        >
+          <img src="assets/images/left-arrow-black.png" />
+        </div>
+        <div
+          class="pagination-right"
+          *ngIf="!disablefnright()"
+          [ngClass]="{ 'disable-arrow': disablefnright() }"
+          (click)="nextPage()"
+        >
+          <img src="assets/images/right-arrow-black.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

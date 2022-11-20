@@ -1,0 +1,150 @@
+<section>
+  <div class="container-fluid pb-5 mb-3">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="configuration-container">
+          <form>
+            <div class="form-row row1 ml-1">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="radiotype"
+                  id="monthRadio"
+                  [(ngModel)]="selectedData"
+                  value="month"
+                  (click)="selectData('month')"
+                />
+                <label class="form-check-label" for="monthRadio" translate>MTD</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="radiotype"
+                  value="year"
+                  id="yearRadio"
+                  [(ngModel)]="selectedData"
+                  (click)="selectData('year')"
+                />
+                <label class="form-check-label" for="yearRadio" translate>YTD</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row row mb-2 mb-lg-5">
+      <!-- <div class="col-md-4">
+        <h6>Target Vs Actuals_Licensee Level</h6>
+        <div style="display: block">
+            <canvas
+              baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels1"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+            >
+            </canvas>
+          </div>
+      </div> -->
+      <div class="col-md-4 my-3">
+        <h6>Stock on Hand_IML BEER_Litres1</h6>
+        <div class="chart">
+          <canvas
+            baseChart
+            [data]="stockOnHandCategoryData"
+            [labels]="stockOnHandCategoryLabel"
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [colors]="pieChartColors"
+            [legend]="pieChartLegend"
+          >
+          </canvas>
+        </div>
+      </div>
+      <div class="col-md-4 my-3">
+        <h6>Stock on Hand_IML BEER Distribution_Litres</h6>
+        <div class="chart">
+          <canvas
+            baseChart
+            [data]="stockOnHandSubCategoryData"
+            [labels]="stockOnHandSubCategoryLabel"
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [colors]="pieChartColors1"
+            [legend]="pieChartLegend"
+          >
+          </canvas>
+        </div>
+      </div>
+    </div>
+    <div class="rowrow mb-2 mb-lg-5">
+      <div class="col-md-4 my-3">
+        <h6>Purchase MTD_IML BEER_Liters</h6>
+
+        <div class="chart height-300">
+          <canvas
+            baseChart
+            [datasets]="purchaseCategoryData"
+            [labels]="purchaseCategoryLabel"
+            [options]="barChartOptionpurchase"
+            [legend]="barChartLegend"
+            [colors]="pieChartColors"
+            [chartType]="barChartType"
+          >
+          </canvas>
+        </div>
+      </div>
+      <div class="col-md-8 my-3">
+        <h6>Purchase_IML Beer Distribution_Liters</h6>
+
+        <div class="chart height-300">
+          <canvas
+            baseChart
+            [datasets]="purchaseSubCategoryData"
+            [labels]="purchaseSubCategoryLabel"
+            [colors]="pieChartColors1"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+          >
+          </canvas>
+        </div>
+      </div>
+    </div>
+    <div class="row row mb-2 mb-lg-5">
+      <div class="col-md-4 my-3">
+        <h6>Sales MTD_IML BEER_Liters</h6>
+        <div class="chart height-300">
+          <canvas
+            baseChart
+            [datasets]="salesCategoryData"
+            [labels]="salesCategoryLabel"
+            [options]="barChartOptionpurchase"
+            [colors]="pieChartColors"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+          >
+          </canvas>
+        </div>
+      </div>
+      <div class="col-md-8 pb-5 mb-5 pb-lg-0 mb-lg-0">
+        <h6>Sales_IML Beer Distribution_Liters</h6>
+        <div class="chart height-300">
+          <canvas
+            baseChart
+            [datasets]="salesSubCategoryData"
+            [labels]="salesSubCategoryLabel"
+            [colors]="pieChartColors1"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+          >
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

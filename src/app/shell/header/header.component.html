@@ -1,0 +1,103 @@
+<!-- <header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="https://github.com/dexp" translate>APP_NAME</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      aria-controls="navbar-menu"
+      aria-label="Toggle navigation"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="!menuHidden"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbar-menu" class="collapse navbar-collapse float-xs-none" [ngbCollapse]="menuHidden">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link text-uppercase" routerLink="/home" routerLinkActive="active">
+          <i class="fas fa-home"></i>
+          <span translate>Home</span>
+        </a>
+        <a class="nav-item nav-link text-uppercase" routerLink="/about" routerLinkActive="active">
+          <i class="fas fa-question-circle"></i>
+          <span translate>About</span>
+        </a>
+      </div>
+      <div class="navbar-nav ml-auto">
+        <app-language-selector inNavbar="true" menuClass="dropdown-menu dropdown-menu-right"></app-language-selector>
+        <div class="nav-item" ngbDropdown>
+          <a id="user-dropdown" class="nav-link" ngbDropdownToggle>
+            <i class="fas fa-user-circle"></i>
+          </a>
+          <div ngbDropdownMenu aria-labelledby="user-dropdown" class="dropdown-menu dropdown-menu-right">
+            <h6 class="dropdown-header">
+              <span translate>Logged in as</span> <b>{{ username }}</b>
+            </h6>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" (click)="logout()" translate>Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header> -->
+<div class="">
+
+</div>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand d-block d-lg-none" href="#">
+    <img src="assets/images/mobile-logo.png" class="img-fluid" /><span>ಕರ್ನಾಟಕ ರಾಜ್ಯ ಸರ್ಕಾರ - ಅಬಕಾರಿ ಇಲಾಖೆ</span></a
+  >
+  <!-- <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="true"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+  <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-align-justify"></i>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Page</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Page</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Page</a>
+        </li>
+    </ul>
+</div>
+  <div class="collapse navbar-collapse">
+    <div class="navbar-nav mr-auto">
+      <img src="assets/images/logo.png" />
+    </div>
+    <div class="form-inline my-2 my-lg-0">
+      <div class="active">
+        <a class="cp" (click)="routeTo()"> <img src="assets/images/home-24px.svg" alt="dashboard" /> Dashboard</a>
+      </div>
+      <div class="logout-link" *ngIf="userType === 'L'">
+        <a (click)="logout()"> <img src="assets/images/logout-24px.svg" alt="Logout" /> Logout</a>
+      </div>
+      <div class="user-link" ngbDropdown *ngIf="userType !== 'L'">
+        <a class="dropdown-toggle d-flex" ngbDropdownToggle id="navbarDropdown2" role="button">
+          <img src="https://appstack.bootlab.io/img/avatars/avatar.jpg" alt="User" />
+          <span>{{ userDetails?.Description }} - Profile<br /><small>Bengaluru</small></span>
+        </a>
+        <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu">
+          <a ngbDropdownItem>Action</a>
+          <a ngbDropdownItem>Another action</a>
+          <a ngbDropdownItem (click)="logout()">Logout</a>
+        </div>
+      </div>
+      <app-language-selector inNavbar="true" menuClass="dropdown-menu dropdown-menu-right"></app-language-selector>
+    </div>
+  </div>
+</nav>

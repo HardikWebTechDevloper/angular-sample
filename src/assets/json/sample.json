@@ -1,0 +1,1153 @@
+{
+  "configuarationHeader": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "col1",
+          "headerName": "KSBCL SKU Code"
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "ALIAS"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "className": "header2",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "",
+          "fieldName": "SKU",
+          "fieldClassName": "",
+          "inputField": false
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "",
+          "fieldName": "Alias",
+          "fieldClassName": "",
+          "inputField": true
+        }
+      ]
+    }
+  ],
+  "configuarationDisabledHeader": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "col1",
+          "headerName": "KSBCL SKU Code"
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "ALIAS"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "className": "header2",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "",
+          "fieldName": "SKU",
+          "fieldClassName": "",
+          "inputField": false
+        },
+        {
+          "id": 2,
+          "className": "bg-grey",
+          "headerName": "",
+          "fieldName": "Alias",
+          "isDisabled": true,
+          "fieldClassName": "",
+          "inputField": true
+        }
+      ]
+    }
+  ],
+  "openingStockCl2Header": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "col1",
+          "headerName": "KSBCL SKU Code"
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "ALIAS"
+        },
+        {
+          "id": 3,
+          "className": "stock-col",
+          "colSpan": 2,
+          "headerName": "Opening Stock"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "className": "header2",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "",
+          "fieldName": "SKU",
+          "fieldClassName": "",
+          "inputField": false
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "",
+          "fieldName": "Alias",
+          "fieldClassName": "",
+          "inputField": false
+        },
+        {
+          "id": 3,
+          "className": "",
+          "headerName": "QTY",
+          "fieldName": "OpenStockQTY",
+          "fieldClassName": "",
+          "inputField": true
+        }
+      ]
+    }
+  ],
+  "openingStockCl9Header": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "col1",
+          "headerName": "KSBCL SKU Code"
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "ALIAS"
+        },
+        {
+          "id": 3,
+          "className": "stock-col",
+          "colSpan": 2,
+          "headerName": "Opening Stock"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "className": "header2",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "",
+          "fieldName": "SKU",
+          "fieldClassName": "",
+          "inputField": false
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "",
+          "fieldName": "Alias",
+          "fieldClassName": "",
+          "inputField": false
+        },
+        {
+          "id": 3,
+          "className": "",
+          "headerName": "QTY",
+          "fieldName": "OpenStockQTY",
+          "fieldClassName": "stock-input",
+          "inputField": true
+        },
+        {
+          "id": 4,
+          "className": "",
+          "headerName": "ML",
+          "fieldName": "OpenStockML",
+          "checkValidation": true,
+          "fieldClassName": "stock-input",
+          "inputField": true
+        }
+      ]
+    }
+  ],
+  "openingStockSummaryHeader": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "Category"
+        },
+        {
+          "id": 2,
+          "className": "stock-col",
+          "colSpan": 2,
+          "headerName": "Opening Stock (Total)"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "className": "header2",
+
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "",
+          "fieldName": "SubCategory",
+          "fieldClassName": "",
+          "inputField": false
+        },
+        {
+          "id": 3,
+          "className": "",
+          "headerName": "QTY",
+          "fieldName": "sum_qty",
+          "fieldClassName": "stock-input",
+          "inputField": false
+        },
+        {
+          "id": 4,
+          "className": "",
+          "headerName": "ML",
+          "fieldName": "sum_ml",
+          "fieldClassName": "stock-input",
+          "inputField": false
+        }
+      ]
+    }
+  ],
+  "openingStockSummaryCl2Header": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "Category"
+        },
+        {
+          "id": 2,
+          "className": "stock-col",
+          "colSpan": 2,
+          "headerName": "Opening Stock (Total)"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "className": "header2",
+
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "",
+          "fieldName": "SubCategory",
+          "fieldClassName": "",
+          "inputField": false
+        },
+        {
+          "id": 3,
+          "className": "",
+          "headerName": "QTY",
+          "fieldName": "sum_qty",
+          "fieldClassName": "stock-input",
+          "inputField": false
+        }
+      ]
+    }
+  ],
+  "AddNewSKUHeader": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "col2",
+          "headerName": ""
+        },
+        {
+          "id": 2,
+          "className": "col1",
+          "headerName": "KSBCL SKU Code"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "className": "header2",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "",
+          "fieldName": "",
+          "fieldClassName": "selected",
+          "IsCheckbox": true
+        },
+        {
+          "id": 3,
+          "className": "",
+          "headerName": "QTY",
+          "fieldName": "SKU",
+          "fieldClassName": "",
+          "searchSKU": true
+        }
+      ]
+    }
+  ],
+  "purchaseHeader": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "col1",
+          "headerName": "KSBCL SKU Code",
+          "fieldName": "SKU"
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "ALIAS",
+          "fieldName": "Alias"
+        },
+        {
+          "id": 3,
+          "className": "",
+          "headerName": "Purchase (Quantity)",
+          "fieldName": "bottles"
+        }
+      ]
+    }
+  ],
+  "purchseSummary": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "Category"
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "Opening Stock"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "className": "header2",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "",
+          "fieldName": "SubCategory",
+          "fieldClassName": ""
+        },
+        {
+          "id": 3,
+          "className": "",
+          "headerName": "Quantity",
+          "fieldName": "sum_purchase",
+          "fieldClassName": ""
+        }
+      ]
+    }
+  ],
+  "salesHeader": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "KSBCL SKU CODE ",
+          "subheaderName": "Alias",
+          "toggleHeader": true
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "Sales"
+        },
+        {
+          "id": 3,
+          "className": "",
+          "headerName": "Stock On Hand"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "className": "header2",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "",
+          "fieldName": "SKU",
+          "fieldClassName": "",
+          "searchSKU": true,
+          "alternativeFieldName": "Alias",
+          "toggleHeader": true
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "Quantity",
+          "fieldName": "SalesQTY",
+          "checkQTYValidation": true,
+          "addField": "PurchaseQTY",
+          "secaddField": "OpenStockQTY",
+          "thirdaddField": "closingStock",
+          "inputField": true,
+          "fieldClassName": ""
+        },
+        {
+          "id": 3,
+          "className": "bg-grey",
+          "headerName": "Quantity",
+          "fieldName": "OpenStockQTY",
+          "addStock": true,
+          "addField": "PurchaseQTY",
+          "fieldClassName": ""
+        }
+      ]
+    }
+  ],
+  "salesMLHeader": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "KSBCL SKU CODE ",
+          "subheaderName": "Alias",
+          "toggleHeader": true
+        },
+        {
+          "id": 2,
+          "className": "",
+          "colSpan": 2,
+          "headerName": "Sales"
+        },
+        {
+          "id": 3,
+          "className": "",
+          "colSpan": 2,
+          "headerName": "Stock On Hand"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "className": "header2",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "search-form",
+          "headerName": "",
+          "fieldName": "SKU",
+          "alternativeFieldName": "Alias",
+          "toggleHeader": true,
+          "fieldClassName": "",
+          "searchSKU": true
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "Quantity",
+          "fieldName": "SalesQTY",
+          "checkQTYValidation": true,
+          "addField": "PurchaseQTY",
+          "secaddField": "OpenStockQTY",
+          "thirdaddField": "closingStock",
+          "inputField": true,
+          "fieldClassName": ""
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "ML",
+          "fieldName": "SalesML",
+          "inputField": true,
+          "checkValidation": true,
+          "salesValidation": true,
+          "addField": "PurchaseQTY",
+          "fieldClassName": ""
+        },
+        {
+          "id": 3,
+          "className": "bg-grey",
+          "headerName": "Quantity",
+          "fieldName": "OpenStockQTY",
+          "addStock": true,
+          "addField": "PurchaseQTY",
+          "fieldClassName": ""
+        },
+        {
+          "id": 4,
+          "className": "bg-grey",
+          "headerName": "ML",
+          "fieldName": "OpenStockML",
+          "fieldClassName": ""
+        }
+      ]
+    }
+  ],
+  "salesRegisterHeader": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "KSBCL SKU CODE ",
+          "subheaderName": "Alias",
+          "toggleHeader": true
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "Opening Stock"
+        },
+        {
+          "id": 3,
+          "className": "",
+          "headerName": "Purchase"
+        },
+        {
+          "id": 4,
+          "className": "",
+          "headerName": "Sales"
+        },
+        {
+          "id": 5,
+          "className": "",
+          "headerName": "Closing stock"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "className": "header2",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "",
+          "fieldName": "SKU",
+          "fieldClassName": "",
+          "alternativeFieldName": "Alias",
+          "toggleHeader": true
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "QTY",
+          "fieldName": "OpenStockQTY",
+          "fieldClassName": ""
+        },
+
+        {
+          "id": 4,
+          "className": "",
+          "headerName": "QTY",
+          "fieldName": "PurchaseQTY",
+          "fieldClassName": ""
+        },
+        {
+          "id": 5,
+          "className": "",
+          "headerName": "QTY",
+          "fieldName": "SalesQTY",
+          "fieldClassName": ""
+        },
+
+        {
+          "id": 7,
+          "className": "",
+          "headerName": "QTY",
+          "fieldName": "ClosingStockQTY",
+          "fieldClassName": ""
+        }
+      ]
+    }
+  ],
+  "salesMLRegisterHeader": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "KSBCL SKU CODE ",
+          "subheaderName": "Alias",
+          "toggleHeader": true
+        },
+        {
+          "id": 2,
+          "className": "",
+          "colSpan": 2,
+          "headerName": "Opening Stock"
+        },
+        {
+          "id": 3,
+          "className": "",
+          "headerName": "Purchase"
+        },
+        {
+          "id": 4,
+          "className": "",
+          "colSpan": 2,
+          "headerName": "Sales"
+        },
+        {
+          "id": 5,
+          "className": "",
+          "colSpan": 2,
+          "headerName": "Closing stock"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "className": "header2",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "",
+          "fieldName": "SKU",
+          "fieldClassName": "",
+          "alternativeFieldName": "Alias",
+          "toggleHeader": true
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "QTY",
+          "fieldName": "OpenStockQTY",
+          "fieldClassName": ""
+        },
+        {
+          "id": 3,
+          "className": "",
+          "headerName": "ML",
+          "fieldName": "OpenStockML",
+          "fieldClassName": ""
+        },
+        {
+          "id": 4,
+          "className": "",
+          "headerName": "QTY",
+          "fieldName": "PurchaseQTY",
+          "fieldClassName": ""
+        },
+        {
+          "id": 5,
+          "className": "",
+          "headerName": "QTY",
+          "fieldName": "SalesQTY",
+          "fieldClassName": ""
+        },
+        {
+          "id": 6,
+          "className": "",
+          "headerName": "ML",
+          "fieldName": "SalesML",
+          "fieldClassName": ""
+        },
+        {
+          "id": 7,
+          "className": "",
+          "headerName": "QTY",
+          "fieldName": "ClosingStockQTY",
+          "fieldClassName": ""
+        },
+        {
+          "id": 8,
+          "className": "",
+          "headerName": "ML",
+          "fieldName": "ClosingStockML",
+          "fieldClassName": ""
+        }
+      ]
+    }
+  ],
+  "saleSummary": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "Category"
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "Sales (Total)"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "className": "header2",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "",
+          "fieldName": "SubCategory",
+          "fieldClassName": ""
+        },
+        {
+          "id": 3,
+          "className": "",
+          "headerName": "Quantity",
+          "fieldName": "TotalSales",
+          "fieldClassName": ""
+        }
+      ]
+    }
+  ],
+  "saleMLSummary": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "Category"
+        },
+        {
+          "id": 2,
+          "className": "",
+          "colSpan": 2,
+          "headerName": "Sales (Total)"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "className": "header2",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "",
+          "fieldName": "SubCategory",
+          "fieldClassName": ""
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "Quantity",
+          "fieldName": "TotalSales",
+          "fieldClassName": ""
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "ML",
+          "fieldName": "TotalSalesML",
+          "fieldClassName": ""
+        }
+      ]
+    }
+  ],
+  "stockHeader": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "KSBCL SKU CODE ",
+          "subheaderName": "Alias",
+          "toggleHeader": true
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "Closing stock"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "className": "header2",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "",
+          "fieldName": "SKU",
+          "fieldClassName": "",
+          "searchSKU": true,
+          "alternativeFieldName": "Alias",
+          "toggleHeader": true
+        },
+        {
+          "id": 3,
+          "className": "",
+          "headerName": "Quantity",
+          "fieldName": "ClosingStockQTY",
+          "checkQTYValidation": true,
+          "closingStockValidation": true,
+          "addField": "PurchaseQTY",
+          "secaddField": "OpenStockQTY",
+          "thirdaddField": "closestockQuantity",
+          "fieldClassName": "",
+          "inputField": true
+        }
+      ]
+    }
+  ],
+  "stockMLHeader": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "KSBCL SKU CODE ",
+          "subheaderName": "Alias",
+          "toggleHeader": true
+        },
+        {
+          "id": 2,
+          "className": "",
+          "colSpan": 2,
+          "headerName": "Closing stock"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "className": "header2",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "",
+          "fieldName": "SKU",
+          "fieldClassName": "",
+          "searchSKU": true,
+          "alternativeFieldName": "Alias",
+          "toggleHeader": true,
+          "rowValueEdited": false
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "QTY",
+          "fieldName": "ClosingStockQTY",
+          "checkQTYValidation": true,
+          "closingStockValidation": true,
+          "addField": "PurchaseQTY",
+          "secaddField": "OpenStockQTY",
+          "thirdaddField": "closestockQuantity",
+          "inputField": true,
+          "fieldClassName": "",
+          "rowValueEdited": "rowValueEdited"
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "ML",
+          "fieldName": "ClosingStockML",
+          "checkValidation": true,
+          "inputField": true,
+          "fieldClassName": "",
+          "rowValueEdited": false
+        }
+      ]
+    }
+  ],
+  "stockSummary": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "Category"
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "Closing stock (Total)"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "className": "header2",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "",
+          "fieldName": "SubCategory",
+          "fieldClassName": ""
+        },
+        {
+          "id": 3,
+          "className": "",
+          "headerName": "Quantity",
+          "fieldName": "SUM_CLOSE_QTY",
+          "fieldClassName": ""
+        }
+      ]
+    }
+  ],
+  "stockMLSummary": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "Category"
+        },
+        {
+          "id": 2,
+          "className": "",
+          "colSpan": 2,
+          "headerName": "Closing stock (Total)"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "className": "header2",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "",
+          "headerName": "",
+          "fieldName": "SubCategory",
+          "fieldClassName": ""
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "Quantity",
+          "fieldName": "SUM_CLOSE_QTY",
+          "fieldClassName": ""
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "ML",
+          "fieldName": "SUM_CLOSE_ML",
+          "fieldClassName": ""
+        }
+      ]
+    }
+  ],
+  "invoiceHeader": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "col1",
+          "headerName": "Invoice Number",
+          "fieldName": "InvoiceNumber"
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "Invoice Date",
+          "fieldName": "InvoiceDate",
+          "isDate": true
+        },
+        {
+          "id": 3,
+          "className": "",
+          "headerName": "Select",
+          "fieldClassName": "selected",
+          "IsAllCheckbox": true,
+          "IsCheckbox": true
+        }
+      ]
+    }
+  ],
+  "invoiceProcessHeader": [
+    {
+      "id": 1,
+      "className": "",
+      "subArr": [
+        {
+          "id": 1,
+          "className": "col1",
+          "headerName": "Invoice Number",
+          "fieldName": "InvoiceNumber"
+        },
+        {
+          "id": 2,
+          "className": "",
+          "headerName": "Invoice Date",
+          "fieldName": "InvoiceDate",
+          "isDate": true
+        }
+      ]
+    }
+  ],
+  "reportsHeader": [
+    {
+      "id": 2,
+      "className": "",
+      "headerName": "Date",
+      "fieldName": "ReportDate",
+      "hideLabel": true,
+      "isDate": true
+    },
+    {
+      "id": 3,
+      "className": "",
+      "headerName": "Report Name",
+      "fieldName": "ReportName"
+    },
+    {
+      "id": 4,
+      "className": "",
+      "headerName": "Report Type",
+      "fieldName": "ReportType"
+    },
+    {
+      "id": 5,
+      "className": "",
+      "headerName": "Document",
+      "fieldName": "ReportPath",
+      "isURL": true
+    },
+    {
+      "id": 6,
+      "className": "",
+      "headerName": "",
+      "fieldName": "",
+      "isDownloadForwardReport": true
+    }
+  ],
+  "reportsOfficerHeader": [
+    {
+      "id": 1,
+      "className": "",
+      "headerName": "Date",
+      "fieldName": "ReportDate",
+      "hideLabel": true,
+      "isDate": true
+    },
+    {
+      "id": 2,
+      "className": "",
+      "headerName": "Report Name",
+      "fieldName": "ReportName"
+    },
+    {
+      "id": 3,
+      "className": "",
+      "headerName": "Jurdication",
+      "fieldName": "juridiction"
+    },
+    {
+      "id": 4,
+      "className": "",
+      "headerName": "Received From",
+      "fieldName": "Name"
+    },
+    {
+      "id": 5,
+      "className": "",
+      "headerName": "Document",
+      "fieldName": "ReportPath",
+      "isURL": true
+    }
+  ],
+  "myReportsOfficerHeader": [
+    {
+      "id": 1,
+      "className": "",
+      "headerName": "Date",
+      "fieldName": "ReportDate",
+      "hideLabel": true,
+      "isDate": true
+    },
+    {
+      "id": 2,
+      "className": "",
+      "headerName": "Report Name",
+      "fieldName": "ReportName"
+    },
+    {
+      "id": 5,
+      "className": "",
+      "headerName": "Document",
+      "fieldName": "ReportPath",
+      "isURL": true
+    }
+  ],
+  "pastExcise": [
+    {
+      "id": 1,
+      "className": "",
+      "headerName": "Entries",
+      "fieldName": "name"
+    }
+  ]
+}

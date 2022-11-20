@@ -1,0 +1,119 @@
+<div class="table-responsive-md report-table text-center mt-2 mb-5 pb-5">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" *ngFor="let head of headerData" [class]="head.className">
+          <span>
+            <div class="custom-control custom-checkbox" *ngIf="head.IsAllCheckbox">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                [(ngModel)]="selectAll"
+                (change)="selectAllItems()"
+                id="selectAll"
+                name="selectAll"
+              />
+              <label class="custom-control-label" for="selectAll">
+                <span *ngIf="!head.hideLabel">Select All</span></label
+              >
+            </div>
+          </span>
+          <span>{{ head.headerName }}</span>
+
+          <span
+            *ngIf="head.isSort"
+            (click)="sortBy(head.fieldName)"
+            [ngClass]="{ 'col-white': orderbyInput === head.fieldName }"
+          >
+            <i class="fas fa-sort"></i>
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tableData of tableArray | orderby: orderbyInput; let i = index">
+        <td *ngFor="let head of headerData">
+          <span
+            *ngIf="
+              !head.IsCheckbox && !head.isURL && !head.IsRouting && !head.isAddress && !head.isDownloadForwardReport
+            "
+          >
+            {{ head.isDate ? (tableData[head.fieldName] | date: dateFormat) : tableData[head.fieldName] }}
+          </span>
+          <span *ngIf="head.IsRouting">
+            <a (click)="routeTo(tableData)">{{ tableData[head.fieldName] }} </a>
+          </span>
+          <div class="custom-control custom-checkbox" *ngIf="head.IsCheckbox">
+            <input
+              type="checkbox"
+              class="custom-control-input"
+              [(ngModel)]="tableData.isSelected"
+              (change)="itemSelect(tableData)"
+              id="sku{{ i }}"
+              name="sku{{ i }}"
+            />
+            <label class="custom-control-label" for="sku{{ i }}"></label>
+          </div>
+
+          <span *ngIf="head.isURL">
+            <div>
+              <a target="_blank" [href]="tableData[head.fieldName]">
+                <img src="assets/images/pdf.svg" /> Doc_print.pdf</a
+              >
+            </div>
+          </span>
+          <span *ngIf="head.isAddress">
+            <a
+              [href]="'https://maps.google.com/?q=' + tableData[head.latField] + ',' + tableData[head.lngField]"
+              target="_blank"
+              ><img src="assets/images/map.png" /> {{ tableData[head.fieldName] }}
+            </a>
+          </span>
+          <span *ngIf="head.isDownloadForwardReport">
+            <!-- <i class="fas fa-download mr-2 cp" (click)="performAction('download',tableData)"></i> -->
+            <i class="fas fa-paper-plane cp" (click)="performAction('forward', tableData)"></i>
+          </span>
+          <span *ngIf="head.isMail">
+            <!-- <i class="fas fa-download mr-2 cp" (click)="performAction('download',tableData)"></i> -->
+            <i class="fas fa-envelope cp" (click)="performAction('mail', tableData)"></i>
+          </span>
+        </td>
+      </tr>
+      <!-- <tr *ngIf="totalCount == 0">
+        No Data found
+      </tr> -->
+    </tbody>
+  </table>
+  <div *ngIf="totalCount == 0" class="text-center">No data found</div>
+  <div class="row pagination-row pb-5" *ngIf="Ispagination && totalCount > 20">
+    <div class="col-12 col-md-8">
+      <!-- <ngb-pagination
+          [collectionSize]="totalCount"
+          [(page)]="page"
+          [boundaryLinks]="false"
+          [directionLinks]="false"
+        ></ngb-pagination> -->
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="pagination-arrows d-flex justify-content-end">
+        <!-- {{ totalCount }} ==== {{  disablefnt() }}={{ disablefnright() }} -->
+        <div
+          class="pagination-left mr-3"
+          *ngIf="!disablefnt()"
+          [ngClass]="{ 'disable-arrow': disablefnt() }"
+          (click)="prevPage()"
+        >
+          <img src="assets/images/left-arrow-black.png" />
+        </div>
+        <div
+          class="pagination-right"
+          *ngIf="!disablefnright()"
+          [ngClass]="{ 'disable-arrow': disablefnright() }"
+          (click)="nextPage()"
+        >
+          <img src="assets/images/right-arrow-black.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

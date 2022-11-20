@@ -1,0 +1,68 @@
+.report-content .modal-header {
+  background: #001f38;
+  color: #fff;
+  padding: 13px 32px;
+}
+.report-content .modal-header .modal-title {
+  font-size: 21px;
+  line-height: 28px;
+  letter-spacing: 0.3px;
+}
+.report-content .modal-header .close {
+  color: #fff;
+}
+.reports h5 {
+  font-size: 17px;
+  line-height: 23px;
+  color: #777777;
+}
+.report-content .modal-body {
+  padding: 15px 32px;
+  min-height: 665px;
+}
+.reports .form-group label {
+  font-size: 14px;
+  color: #9b9b9b;
+  line-height: 13px;
+  font-family: "Nunito Sans";
+  margin-left: 10px;
+}
+.reports .form-group select {
+  width: 197px;
+  height: 38px;
+  font-size: 17px;
+  line-height: 15px;
+  margin-right: 23px;
+  font-family: "Nunito Sans";
+}
+.reports .modal-report,
+.reports .modal-report:hover {
+  border-color: #1e81ce;
+  background: #fff;
+  color: #1e81ce;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 15px;
+  width: 212px;
+  height: 45px;
+}
+.reports .modal-save {
+  background-color: #1e81ce;
+  height: 45px;
+  color: #fff;
+  font-size: 17px;
+  line-height: 15px;
+  text-transform: uppercase;
+  width: 139px;
+}
+.reports .modal-save:after {
+  content: "";
+  margin-left: 20px;
+  font-size: 17px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}

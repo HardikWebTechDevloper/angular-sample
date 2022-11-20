@@ -1,0 +1,131 @@
+section .container-fluid {
+  padding: 0px 110px;
+}
+.store-profile .title {
+  font-size: 24px;
+  line-height: 47px;
+  color: #001f38;
+}
+.store-profile .form-group label {
+  font-size: 14px;
+  color: #9b9b9b;
+  line-height: 13px;
+  font-family: "Nunito Sans";
+  margin-left: 10px;
+}
+.store-profile .form-group select {
+  width: 197px;
+  height: 38px;
+  font-size: 17px;
+  line-height: 15px;
+  margin-right: 23px;
+  font-family: "Nunito Sans";
+}
+.store-profile .report-btn {
+  background-color: #1e81ce;
+  height: 38px;
+  color: #fff;
+  font-size: 17px;
+  line-height: 15px;
+  text-transform: uppercase;
+  width: 270px;
+}
+.report-table thead tr {
+  background-color: #001f38;
+  color: #fff;
+}
+.report-table .table thead th {
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  opacity: 0.7;
+}
+.report-table .table tbody td {
+  padding: 0.55rem;
+}
+.report-table .table tbody td > img {
+  height: 30px;
+  margin-right: 15px;
+}
+.report-table .table tbody {
+  border-bottom: 1px solid #dee2e6;
+  box-shadow: 0px 0px 5px #0000001a;
+}
+
+@media (max-width: 767px) {
+  .store-profile {
+    padding: 0px;
+  }
+  .report-table .table thead th {
+    font-size: 8px;
+  }
+  .report-table .table tbody td {
+    font-size: 10px;
+  }
+  .store-profile .report-btn,
+  .store-profile .download-btn {
+    height: 30px;
+    font-size: 12px;
+    width: 170px;
+  }
+  .store-profile .form-group select {
+    font-size: 14px;
+  }
+}
+
+// Store Profile View CSS
+section .container-fluid {
+  padding: 0px 110px;
+}
+.store-profile-view form {
+  max-width: 600px;
+}
+.store-profile-view form label {
+  font-size: 14px;
+  color: #9b9b9b;
+  line-height: 13px;
+  font-family: "Nunito Sans";
+}
+.store-profile-view form .form-control {
+  border: none !important;
+}
+.store-profile-view form .form-control:focus {
+  box-shadow: none;
+  padding: 0;
+}
+.store-profile-view {
+  position: relative;
+  padding-top: 30px;
+}
+.back-btn {
+  position: absolute;
+  left: 40px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: "NunitoSans-Bold";
+}
+.store-profile-view form .input-value {
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "NunitoSans-Bold";
+}
+.store-profile-view form .form-group {
+  margin: 25px 0px;
+}
+
+@media (max-width: 767px) {
+  section .container-fluid {
+    padding: 0px 15px;
+  }
+  .store-profile-view form .form-group {
+    margin: 10px 0px;
+  }
+  .store-profile-view {
+    padding-top: 60px;
+  }
+  .back-btn {
+    top: 0px;
+    left: 15px;
+  }
+}

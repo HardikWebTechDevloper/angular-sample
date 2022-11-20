@@ -1,0 +1,72 @@
+<section class="reports-analytics mb-5 mb-lg-0">
+  <div class="container px-0">
+    <!-- <div class="title">View Report</div> -->
+    <div class="row ml-2">
+      <div class="mr-5 cp" (click)="changeReportType('F')" [ngClass]="{ activeTab: ReportSource === 'F' }">
+        Forwarded Reports
+      </div>
+      <div class="cp" (click)="changeReportType('C')" [ngClass]="{ activeTab: ReportSource !== 'F' }">My Reports</div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 form-row ml-1">
+        <div class="form-group">
+          <label for="date">Date</label>
+          <select id="date" class="form-control" [(ngModel)]="dateRange" (change)="onValueChange()">
+            <option *ngFor="let mon of monthArr" [value]="mon.id">{{ mon.display }}</option>
+          </select>
+          <!-- <div class="input-group">
+            <input
+              id="model"
+              class="form-control"
+              placeholder="yyyy-mm-dd"
+              (dateSelect)="onDateSelect($event)"
+              name="dp"
+              [(ngModel)]="model"
+              ngbDatepicker
+              #d="ngbDatepicker"
+              [maxDate]="maxDate"
+            />
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                <i class="fas fa-calendar-alt"></i>
+              </button>
+            </div>
+          </div> -->
+        </div>
+        <div class="form-group" *ngIf="ReportSource === 'F'">
+          <label for="action">Licensee Name</label>
+          <select id="action" class="form-control" [(ngModel)]="licenseeId" (change)="onValueChange()">
+            <option value="">Select action</option>
+            <option *ngFor="let licensee of licenseeList" [value]="licensee.LicenseeID">{{ licensee.Name }}</option>
+          </select>
+        </div>
+        <div class="form-group" *ngIf="ReportSource === 'F'">
+          <label for="action">Licensee Category</label>
+          <select id="action" class="form-control" [(ngModel)]="category" (change)="onValueChange()">
+            <option value="">Select action</option>
+            <option *ngFor="let category of licenseeCategoryList" [value]="category.LicenseType">
+              {{ category.LicenseType }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-4 text-right px-3">
+        <button class="btn btn-primary report-btn my-4" (click)="openReportPopup()">Create New Report</button><br />
+        <!-- <button class="btn btn-primary download-btn mt-4">
+              <img src="assets/images/download.svg" class="img-fluid" />Download
+            </button> -->
+      </div>
+    </div>
+    <div class="table-responsive">
+      <app-sp-table
+        [headerData]="headerArray"
+        [totalCount]="totalCount"
+        [tableArray]="reportsList"
+        (onPageChanges)="onPageChanges($event)"
+        [Ispagination]="true"
+        [page]="page"
+      ></app-sp-table>
+    </div>
+  </div>
+</section>
+<ngx-spinner></ngx-spinner>

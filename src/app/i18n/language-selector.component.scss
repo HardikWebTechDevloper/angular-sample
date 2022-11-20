@@ -1,0 +1,14 @@
+.nav-link.dropdown-toggle {
+  cursor: pointer;
+}
+
+.lang-switch {
+  a {
+    color: gray;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  .active {
+    color: #1e81ce;
+  }
+}

@@ -1,0 +1,124 @@
+.spform-container {
+  margin: 20px 0px 0px;
+}
+.spform-container .title {
+  font: normal normal normal 28px NunitoSans-Bold;
+  color: #001f38;
+}
+
+.spform-container label {
+  color: #858997;
+  font: normal normal normal 14px NunitoSans-Bold;
+}
+
+.spform-container .form-row {
+  margin: 0;
+}
+
+.spform-container input {
+  border: 1px solid #e9eff5;
+  border-radius: 4px;
+  height: 43px;
+  color: #000000;
+  font: normal normal normal 17px NunitoSans-SemiBold;
+}
+
+.spform-container input.number {
+  letter-spacing: 0px;
+  color: rgb(0 0 0 / 36%);
+  border: 1px solid #e9eff5;
+}
+
+.spform-container .row1 input {
+  width: 323px;
+  margin-right: 50px;
+}
+
+.spform-container .row2 input {
+  width: 700px;
+}
+
+.spform-container .row3 .form-group:first-child input {
+  width: 323px;
+  margin-right: 50px;
+}
+
+.spform-container .row3 .form-group:nth-child(2) input {
+  width: 145px;
+  margin-right: 50px;
+}
+
+// .spform-container .row3 button {
+//   width: 209px;
+//   height: 43px;
+//   border: 1px solid #1e81ce;
+//   color: #1e81ce;
+//   text-transform: uppercase;
+//   font: normal normal normal 14px NunitoSans-Bold;
+// }
+
+// .sp-btn {
+//   width: 139px;
+//   height: 45px;
+//   float: right;
+//   border: 1px solid #1e81ce;
+//   background-color: #1e81ce;
+//   color: #fff;
+//   text-transform: uppercase;
+//   border-radius: 4px;
+//   margin-bottom: 30px;
+// }
+
+// .sp-btn img {
+//   vertical-align: text-bottom;
+// }
+.spform-container {
+  form {
+    margin-top: 30px;
+    .form-group {
+      margin-bottom: 25px;
+    }
+    .sp-btn {
+      float: right;
+    }
+  }
+}
+.sp-adress {
+  textarea {
+    width: 700px;
+    max-width: 100%;
+    border: 1px solid #e9eff5;
+    height: 43px;
+  }
+  .map-icon {
+    margin-left: 18px;
+    cursor: pointer;
+  }
+}
+.spform-container form .form-control::placeholder {
+  color: #000000;
+}
+.spform-container form .form-control:-ms-input-placeholder {
+  color: #000000;
+}
+.spform-container form .form-control::-ms-input-placeholder {
+  color: #000000;
+}
+@media (max-width: 767px) {
+  .spform-container .row1 input,
+  .spform-container .row2 input,
+  .spform-container .row3 .form-group:first-child input,
+  .spform-container .row3 .form-group:nth-child(2) input {
+    width: 100%;
+    margin-right: 50px;
+    font-size: 14px;
+    height: 35px;
+  }
+  .spform-container .sp-adress textarea {
+    width: 100%;
+    height: 100px;
+  }
+  .spform-container .form-row {
+    display: block;
+  }
+}

@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 custom-table">
+      <div class="modal-title-row">
+        <h6 class="title float-left">Purchase Quatity Summary</h6>
+        <span>{{ currentDate | date: 'dd MMM yyyy, EEEE' }}</span>
+      </div>
+      <div class="col-12">
+        <app-alert></app-alert>
+      </div>
+      <div class="exceise-register-table exceise-register-purchase">
+        <div *ngIf="headerArray.length > 0">
+          <app-sp-grid
+            [selectedData]="''"
+            [selectedPreference]="''"
+            [skuproductList]="purchaseSummaryList"
+            [headerData]="headerArray"
+            [totalCount]="totalCount"
+            [Ispagination]="false"
+          ></app-sp-grid>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mt-5">
+          <div class="important-msg pl-3 pt-2">
+            <h3>Important</h3>
+            <input type="checkbox" [(ngModel)]="confirmPurchase" [ngModelOptions]="{ standalone: true }" /><span
+              >&nbsp;&nbsp;Confirm Purchase Quantity to Update in DEXP</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="text-center">
+            <button class="btn btn-default btn-back" (click)="close()">Back</button>
+            <button class="sp-btn save-submit-btn" (click)="updatePurchase()" [disabled]="!confirmPurchase">
+              Update Purchase
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

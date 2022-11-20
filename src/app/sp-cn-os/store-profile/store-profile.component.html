@@ -1,0 +1,237 @@
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <ngx-spinner></ngx-spinner>
+        <div class="spform-container">
+          <div class="title" translate>profile-Details</div>
+          <form
+            [formGroup]="storeProfileFormGroup"
+            (ngSubmit)="submitted = true; storeProfileFormGroup.valid && saveStoreProfile()"
+          >
+            <div class="form-row row1">
+              <div class="form-group">
+                <label for="inputName" translate>Licensee-Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputName"
+                  value=""
+                  readonly
+                  appNumbersOnly
+                  formControlName="licenseeName"
+                />
+              </div>
+              <div class="form-group">
+                <label for="inputHolderName" translate>License-Holder-Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  readonly
+                  id="inputHolderName"
+                  value="Rajesh Kumar GS"
+                  formControlName="licenseeHolderName"
+                />
+              </div>
+            </div>
+            <div class="form-row row2">
+              <div class="form-group">
+                <label for="inputAddress" translate>Address</label>
+                <!-- <input
+                  type="text"
+                  class="form-control"
+                  id="inputCity"
+                  readonly
+                  value="Akshya Nagar 1st Block 1st Cross, Rammurthy nagar"
+                  formControlName="address"
+                /> -->
+                <div class="sp-adress d-flex">
+                  <textarea
+                    id="inputAddress"
+                    type="text"
+                    readonly
+                    class="form-control"
+                    placeholder="Akshya Nagar 1st Block 1st Cross, Rammurthy nagar"
+                    required=""
+                  ></textarea>
+                  <!-- <img class="map-icon" src="../../../assets/images/map-icon.svg" /> -->
+                </div>
+              </div>
+              <div class="form-group"></div>
+            </div>
+            <div class="form-row row1">
+              <div class="form-group">
+                <label for="inputLatitude">Latitude</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputLatitude"
+                  [ngClass]="{
+                    'is-invalid': submitted && storeProfileFormControl.latitude.invalid,
+                    'form-control': true,
+                    'is-valid':
+                      storeProfileFormControl.latitude.valid &&
+                      (storeProfileFormControl.latitude.dirty || storeProfileFormControl.latitude.touched)
+                  }"
+                  value=""
+                  formControlName="latitude"
+                />
+                <!-- (keypress)="keyPressAlphaNumeric($event)" -->
+                <div class="error-msg" *ngIf="submitted && storeProfileFormControl.latitude?.errors?.required">
+                  Please enter latitude
+                </div>
+                <div
+                  class="error-msg"
+                  *ngIf="storeProfileFormControl.latitude.dirty && storeProfileFormControl.latitude?.errors?.pattern"
+                >
+                  Please enter valid Latitude
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputLongitude">Longitude</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid': submitted && storeProfileFormControl.longitude.invalid,
+                    'form-control': true,
+                    'is-valid':
+                      storeProfileFormControl.longitude.valid &&
+                      (storeProfileFormControl.longitude.dirty || storeProfileFormControl.longitude.touched)
+                  }"
+                  id="inputLongitude"
+                  value=""
+                  formControlName="longitude"
+                />
+                <!-- (keypress)="keyPressAlphaNumeric($event)" -->
+                <div class="error-msg" *ngIf="submitted && storeProfileFormControl.longitude?.errors?.required">
+                  Please enter longitude
+                </div>
+                <div
+                  class="error-msg"
+                  *ngIf="storeProfileFormControl.longitude.dirty && storeProfileFormControl.longitude?.errors?.pattern"
+                >
+                  Please enter valid Longitude
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row row1">
+              <div class="form-group">
+                <label for="inputStreet" translate>Street</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputStreet"
+                  readonly
+                  value="Ramamurthy Nagar"
+                  formControlName="street"
+                />
+              </div>
+              <div class="form-group">
+                <label for="inputCity" translate>City</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputCity"
+                  readonly
+                  value="Bangalore"
+                  formControlName="city"
+                />
+              </div>
+            </div>
+            <div class="form-row row1">
+              <div class="form-group">
+                <label for="inputContactNumber" translate>Contact-Number</label>
+                <input
+                  type="text"
+                  class="form-control number"
+                  id="inputContactNumber"
+                  value="9 9 9 9 9 9 9 9 9"
+                  maxlength="10"
+                  readonly
+                  appNumbersOnly
+                  formControlName="contactNumber"
+                />
+              </div>
+              <div class="form-group">
+                <label for="inputEmailID" translate>Email-ID</label>
+                <input
+                  type="text"
+                  [ngClass]="{
+                    'is-invalid': submitted && storeProfileFormControl.emailId.invalid,
+                    'form-control': true,
+                    'is-valid':
+                      storeProfileFormControl.emailId.valid &&
+                      (storeProfileFormControl.emailId.dirty || storeProfileFormControl.emailId.touched)
+                  }"
+                  class="form-control"
+                  id="inputEmailID"
+                  value="Rajesh.Kumar@gmail.com"
+                  formControlName="emailId"
+                />
+                <div class="error-msg" *ngIf="submitted && storeProfileFormControl.emailId?.errors?.required">
+                  Please enter Email Id
+                </div>
+                <div
+                  class="error-msg"
+                  *ngIf="storeProfileFormControl.emailId.dirty && storeProfileFormControl.emailId?.errors?.email"
+                >
+                  Please enter valid Email Id
+                </div>
+              </div>
+            </div>
+            <div class="form-row row3">
+              <div class="form-group">
+                <label for="inputCode" translate>Licensee-KSBCL-Code</label>
+                <input
+                  type="text"
+                  class="form-control number"
+                  id="inputCode"
+                  readonly
+                  appNumbersOnly
+                  value="9 9 9 9 9 9 9 9 9"
+                  formControlName="licenseeKSBCLCode"
+                />
+              </div>
+              <div class="form-group">
+                <label for="inputValidity" translate>Licensee-Validity </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputValidity"
+                  readonly
+                  value="12/2024"
+                  formControlName="licenseeValidity"
+                />
+              </div>
+              <!-- <div class="form-group">
+                <label for="inputChangeCode">&nbsp;</label>
+                <button class="form-control secondary-btn">Change Code</button>
+              </div> -->
+            </div>
+            <div class="form-row row1">
+              <div class="form-group">
+                <label for="inputPAN" translate>PAN-Number</label>
+                <input
+                  type="text"
+                  class="form-control number"
+                  id="inputPAN"
+                  readonly
+                  value="9 9 9 9 9 9 9 9 9"
+                  formControlName="panNumber"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <app-alert></app-alert>
+              <div class="col-sm-12 pb-5 mb-5">
+                <button type="submit" class="form-control sp-btn mb-4" translate>Save</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

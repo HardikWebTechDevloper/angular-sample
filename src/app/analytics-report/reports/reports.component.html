@@ -1,0 +1,40 @@
+<section class="reports-analytics">
+  <div class="container px-0">
+    <div class="title">View Report</div>
+    <div class="row">
+      <div class="col-md-6 form-row ml-1 col-12">
+        <div class="form-group">
+          <label for="date">Date</label>
+          <select id="date" class="form-control" [(ngModel)]="dateRange" (change)="onValueChange()">
+            <option *ngFor="let mon of monthArr" [value]="mon.id">{{ mon.display }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="action">Report Type</label>
+          <select id="action" class="form-control" [(ngModel)]="reportType" (change)="onValueChange()">
+            <option value="Monthly">Monthly</option>
+            <option value="Quaterly">Quaterly</option>
+            <option value="Yearly">Yearly</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6 text-right px-3">
+        <button class="btn btn-primary report-btn mt-0 mt-lg-4 mb-3" (click)="openReportPopup()">
+          Create New Report</button
+        ><br />
+      </div>
+    </div>
+    <app-sp-table
+      [headerData]="headerArray"
+      [totalCount]="totalCount"
+      [tableArray]="reportsList"
+      (onSelectCheckbox)="OnSelectAll()"
+      (onItemSelect)="onItemSelect($event)"
+      [Ispagination]="true"
+      (onPageChanges)="onPageChanges($event)"
+      (onPerformAction)="onPerformAction($event)"
+      [page]="page"
+    ></app-sp-table>
+  </div>
+</section>
+<ngx-spinner></ngx-spinner>

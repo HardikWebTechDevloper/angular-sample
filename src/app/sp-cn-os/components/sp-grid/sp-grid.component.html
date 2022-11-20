@@ -1,0 +1,76 @@
+<div class="col-sm-12 custom-table">
+  <div class="exceise-register-table">
+    <table cellpadding="1" cellspacing="1">
+      <tr *ngFor="let head of headerData" [class]="head.className">
+        <td *ngFor="let subhead of head.subArr" [class]="subhead.className" [attr.colSpan]="subhead?.colSpan">
+          <span *ngIf="!subhead.searchSKU"> {{ subhead.headerName }}</span>
+
+          <div class="form-group has-search" *ngIf="subhead.searchSKU">
+            <span class="form-control-feedback">
+              <img src="../../../assets/images/search-icon.png" />
+            </span>
+            <input
+              id="searchSkucode"
+              type="text"
+              [(ngModel)]="searchString"
+              (keyup.enter)="searchBasedString(searchString)"
+              class="form-control"
+              placeholder="Search SKU code"
+            />
+          </div>
+        </td>
+      </tr>
+      <!-- | filter:searchString -->
+      <tr *ngFor="let sku of skuproductList | filter: searchString; let i = index">
+        <td *ngFor="let data of headerData[1].subArr" [class]="data.fieldClassName">
+          <span *ngIf="!data.inputField && !data.IsCheckbox">
+            {{ sku[data['fieldName']] }}
+          </span>
+          <span *ngIf="data.inputField && !data.IsCheckbox">
+            <input
+              id=""
+              [(ngModel)]="sku[data['fieldName']]"
+              type="text"
+              placeholder=""
+              class="form-control"
+              (keypress)="keyPressAlphaNumeric($event, data['fieldName'])"
+              (blur)="InputEdited(sku, data.fieldName, sku[data['fieldName']], i)"
+            />
+          </span>
+          <div class="custom-control custom-checkbox" *ngIf="data.IsCheckbox">
+            <input
+              type="checkbox"
+              class="custom-control-input"
+              [(ngModel)]="sku.isSelected"
+              (change)="itemSelect()"
+              id="sku{{ i }}"
+              name="sku{{ i }}"
+            />
+            <label class="custom-control-label" for="sku{{ i }}"></label>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="row pagination-row" *ngIf="Ispagination">
+    <div class="col-12 col-md-8">
+      <!-- <ngb-pagination
+        [collectionSize]="totalCount"
+        [(page)]="page"
+        [boundaryLinks]="false"
+        [directionLinks]="false"
+      ></ngb-pagination> -->
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="pagination-arrows">
+        <!-- {{ totalCount }} ==== {{  disablefnt() }}={{ disablefnright() }} -->
+        <div class="pagination-left" [ngClass]="{ 'disable-arrow': disablefnt() }" (click)="prevPage()">
+          <img src="assets/images/left-arrow-black.png" />
+        </div>
+        <div class="pagination-right" [ngClass]="{ 'disable-arrow': disablefnright() }" (click)="nextPage()">
+          <img src="assets/images/right-arrow-black.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

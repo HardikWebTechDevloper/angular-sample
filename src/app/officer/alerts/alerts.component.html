@@ -1,0 +1,145 @@
+<section class="alert-component pt-4">
+  <div class="container-fluid">
+    <h3>Alerts</h3>
+    <div class="row pt-3">
+      <div class="col alert-user">
+        <!-- Use border color by using class border-warning or other classes for differnt colors -->
+        <div
+          class="alert panel2 cp"
+          [ngClass]="{ 'border-warning': listType === 'backlog' }"
+          [routerLink]="['/officer/alerts']"
+          [queryParams]="{ alerttype: 'backlog' }"
+        >
+          <img src="assets/images/dashboard-inspection.svg" />
+          <h6>
+            Stores not updated<br />
+            Excise Register
+          </h6>
+          <h1 class="mb-0">{{ alertCounts?.totalRegisterBacklogs ? alertCounts?.totalRegisterBacklogs : 0 }}</h1>
+        </div>
+      </div>
+      <div class="col alert-user">
+        <div
+          class="alert panel4 cp"
+          [ngClass]="{ 'border-warning': listType !== 'backlog' }"
+          [routerLink]="['/officer/alerts']"
+          [queryParams]="{ alerttype: 'purchase' }"
+        >
+          <img src="assets/images/dashboard-inspection.svg" />
+          <h6>
+            Stores not updated <br />
+            Purchase Orders
+          </h6>
+          <h1 class="mb-0">{{ alertCounts?.totalTransportPermits ? alertCounts?.totalTransportPermits : 0 }}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reports-analytics pt-lg-5 pt-0 mb-4">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 form-row ml-1">
+        <div class="form-group mr-5">
+          <label for="date">As of Date</label>
+          <p>
+            {{ currDate | date: 'dd MMM yyyy' }}
+          </p>
+        </div>
+        <!-- <div class="form-group hidden pt-4">
+          <div class="input-group">
+            <input
+              name="datepicker"
+              class="form-control"
+              ngbDatepicker
+              #datepicker="ngbDatepicker"
+              [autoClose]="'outside'"
+              (dateSelect)="onDateSelection($event)"
+              [displayMonths]="2"
+              [dayTemplate]="t"
+              outsideDays="hidden"
+              [startDate]="fromDate!"
+              [maxDate]="maxDate"
+              tabindex="-1"
+            />
+            <ng-template #t let-date let-focused="focused">
+              <span
+                class="custom-day"
+                [class.focused]="focused"
+                [class.range]="isRange(date)"
+                [class.faded]="isHovered(date) || isInside(date)"
+                (mouseenter)="hoveredDate = date"
+                (mouseleave)="hoveredDate = null"
+              >
+                {{ date.day }}
+              </span>
+            </ng-template>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="disp-inline" for="date">Date</label>
+          <div class="input-group">
+            <input
+              #dpFromDate
+              id="date"
+              class="form-control"
+              placeholder="yyyy-mm-dd"
+              name="dpFromDate"
+              [value]="formatter.format(fromDate) + '-' + formatter.format(toDate)"
+              (input)="fromDate = validateInput(fromDate, dpFromDate.value)"
+            />
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button">
+                <i class="fas fa-calendar-alt"></i>
+              </button>
+            </div>
+          </div>
+        </div> -->
+        <!-- <div class="form-group">
+          <label></label>
+          <div class="input-group">
+            <input
+              #dpToDate
+              class="form-control"
+              placeholder="yyyy-mm-dd"
+              name="dpToDate"
+              [value]="formatter.format(toDate)"
+              (input)="toDate = validateInput(toDate, dpToDate.value)"
+            />
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button">
+                <i class="fas fa-calendar-alt"></i>
+              </button>
+            </div>
+          </div>
+        </div> -->
+        <div class="form-group">
+          <label for="action" class="disp-inline">Licensee Name</label>
+          <select id="action" class="form-control" [(ngModel)]="licenseeId" [ngModelOptions]="{ standalone: true }">
+            <option value="" selected>Select action</option>
+            <option *ngFor="let licensee of licenseeList" [value]="licensee.LicenseeID">{{ licensee.Name }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="category" class="disp-inline">License Category</label>
+          <select id="category" class="form-control" [(ngModel)]="category" [ngModelOptions]="{ standalone: true }">
+            <option value="" selected>Select action</option>
+            <option *ngFor="let category of licenseeCategoryList">{{ category.LicenseType }}</option>
+          </select>
+        </div>
+        <div class="pad-t-30">
+          <i class="fas fa-sync cp" (click)="getList()"></i>
+        </div>
+      </div>
+    </div>
+    <app-sp-table
+      [tableArray]="resultArray"
+      [headerData]="headerArray"
+      (onPageChanges)="onPageChanges($event)"
+      [Ispagination]="true"
+      [page]="page"
+      [totalCount]="totalCount"
+    ></app-sp-table>
+  </div>
+</section>

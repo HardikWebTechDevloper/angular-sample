@@ -1,0 +1,184 @@
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="alert-box" [ngClass]="{ success: alertStatus }">
+          <div class="alert_title">
+            <span class="intro-banner-vdo-play-btn">
+              <span class="ripple pinkBg"></span>
+              <span class="ripple pinkBg"></span>
+              <span class="ripple pinkBg"></span>
+            </span>
+            <span translate>Alert</span>
+          </div>
+          <div class="alert__desc">
+            {{ alertMessage }}
+            <!-- Excise Registers are Up To Date. Kindly Fill Today's Register -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="dashboard-panels">
+          <div class="dbox">
+            <div class="der">
+              <img src="assets/images/analyticsbg.svg" class="analytics d-none d-sm-block" />
+              <img src="assets/images/move.svg" class="move" />
+              <div class="dbox-container">
+                <div class="dbox-container1">
+                  <img src="assets/images/dashboard-der.svg" class="move d-none d-sm-block" />
+                </div>
+                <div class="dbox-container2">
+                  Digital <br />
+                  Excise Register
+                </div>
+                <div class="dbox-container3">
+                  <span translate>Last-Updated-on</span> :
+                  <span *ngIf="lastUpdateDate">{{ lastUpdateDate | date: 'dd MMM yyyy' }} </span>
+                  <span *ngIf="!lastUpdateDate">-</span>
+                </div>
+                <div>
+                  <img src="assets/images/line2.svg" class="line" />
+                </div>
+              </div>
+              <div class="dbox-footer">
+                <div>
+                  <span>
+                    {{ invoiceDate | date: 'dd MMM' }}
+                    <img src="assets/images/arrow-down.svg" class="arrow" />
+                  </span>
+                  <span> {{ invoiceDate | date: 'EEEE' }} </span>
+                </div>
+                <div>
+                  <button (click)="routeTo()" [disabled]="disbaleCreateBtn">
+                    {{ displayText }}
+                    <img src="assets/images/arrow-right.svg" class="arrow" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dbox">
+            <div class="ar">
+              <div class="dbox-ar-container">
+                <div class="box1">
+                  <img src="assets/images/dashboard-aricon1.svg" class="move" />
+                </div>
+                <div class="box2">
+                  <div translate>Analytics-Reports</div>
+                  <div>
+                    <button>
+                      <img src="assets/images/arrow-right.svg" class="arrow" />
+                    </button>
+                  </div>
+                </div>
+                <div class="box3">
+                  <div translate>View-Excise-Register</div>
+                  <div>
+                    <button>
+                      <img src="assets/images/arrow-right.svg" class="arrow" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cna">
+              <div class="dbox-cna-container">
+                <div class="box1">
+                  <img src="assets/images/mark_chat_unread-24px.svg" class="chat unread" />
+                </div>
+                <div class="box2">
+                  <div translate>Circulars/Notices/Amendments</div>
+                </div>
+                <div class="box3" translate>Coming-soon</div>
+              </div>
+            </div>
+          </div>
+          <div class="dbox">
+            <div class="sr">
+              <div class="dbox-sr-container">
+                <div class="box1" translate>Store-profile</div>
+                <div class="box2">Shobha Retails</div>
+                <div class="box3"><img src="assets/images/line.svg" class="line" />a</div>
+                <div class="box4">
+                  <div translate>Store-profile</div>
+                  <div>
+                    <button routerLink="/store-profile">
+                      <a> <img src="assets/images/arrow-right.svg" class="arrow" /> </a>
+                    </button>
+                  </div>
+                </div>
+                <div class="box5">
+                  <div translate>Configuration</div>
+                  <div>
+                    <button routerLink="/configuration">
+                      <a> <img src="assets/images/arrow-right.svg" class="arrow" /></a>
+                    </button>
+                  </div>
+                </div>
+                <div class="box6">
+                  <div translate>Opening-stock</div>
+                  <div>
+                    <button (click)="checkStatus()">
+                      <img src="assets/images/arrow-right.svg" class="arrow" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ins">
+              <div class="dbox-ins-container">
+                <div class="box1">
+                  <img src="assets/images/dashboard-inspection.svg" class="inspection" />
+                </div>
+                <div class="box2" translate>Inspections</div>
+                <div class="box3" translate>Coming-soon</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container-fluid mb-5">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="dashboard-panel-box">
+          <div>
+            <img src="assets/images/gavel-24px.svg" />
+          </div>
+          <div>
+            <div translate>Karnataka-Excise-Act</div>
+            <div>Read about the rules and regulation act</div>
+          </div>
+          <div>
+            <img src="assets/images/Rectangle 195.svg" />
+            <img src="assets/images/arrow-right.svg" class="arrow" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- <section class="mobile-footer d-block d-sm-none text-center">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="footer-bottom">
+          <img src="assets/images/group-logo.png" class="img-fluid mb-2" />
+          <p>Authorized by Karnataka State Government Excise Department</p>
+          <p>All right reserved © 2021 by DexP Tool</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->

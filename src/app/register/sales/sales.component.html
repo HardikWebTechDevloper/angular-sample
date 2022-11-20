@@ -1,0 +1,147 @@
+<section class="openingstock-container" *ngIf="!showExcise">
+  <div class="col-12 col-md-6">
+    <app-reg-tabs [activePuchase]="true" [activeSales]="true"></app-reg-tabs>
+  </div>
+  <div class="col-12 float-right mb-2">
+    <div class="text-center float-right form-submit">
+      <button class="sp-btn px-4" (click)="updateLicenseeSale('submit')">View and Submit</button>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row" [ngClass]="{ disbaleContent: editCategory }">
+      <app-sp-category
+        [brands]="subCategoryList"
+        [selectedCategory]="selectedCategory"
+        (onSelect)="onCategorySelection($event)"
+      ></app-sp-category>
+    </div>
+    <span *ngIf="selectedPreference === 'L' && !editCategory">
+      <div class="row">
+        <app-sp-grid
+          *ngIf="headerArray.length > 0"
+          [selectedData]="''"
+          [selectedPreference]="''"
+          [skuproductList]="exciseSalesList"
+          [headerData]="headerArray"
+          [page]="page"
+          [totalCount]="totalCount"
+          (onInputEdit)="onInputEditfn($event)"
+          [Ispagination]="true"
+          (onPageChanges)="onpageChanges($event)"
+        ></app-sp-grid>
+      </div>
+      <app-alert></app-alert>
+      <div class="text-center form-submit mb-15">
+        <button class="sp-btn px-4 mb-5" (click)="updateLicenseeSale('save')" translate>Save</button>
+      </div>
+    </span>
+  </div>
+</section>
+
+<section class="slider-details" *ngIf="selectedPreference === 'C' && !showExcise && !editCategory">
+  <!-- <section class="slider-details"> -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 slider-details stock-data">
+        <app-alert></app-alert>
+        <app-sp-single-item
+          [resultArray]="exciseSalesList"
+          (onAliasChage)="updateSKUAlias($event)"
+          [registerType]="RegisterType"
+          (onInputChange)="onInputEditfn($event)"
+          [enteredLen]="changeddigitalExciseList.length"
+          [displayText]="'Sales'"
+          [displayStock]="true"
+          [headerData]="headerData"
+        ></app-sp-single-item>
+
+        <div class="text-center form-submit mb-15" *ngIf="exciseSalesList.length > 0">
+          <p>
+            Entered: {{ changeddigitalExciseList.length }} To | be Entered:
+            {{ exciseSalesList.length - changeddigitalExciseList.length }}
+          </p>
+          <button class="sp-btn px-4 mb-5" (click)="updateLicenseeSale('save')" translate>Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="slider-details" *ngIf="editCategory && !showExcise">
+  <!-- <section class="slider-details"> -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 slider-details">
+        <app-alert></app-alert>
+        <app-sp-single-item
+          [resultArray]="exciseSalesList"
+          (onAliasChage)="updateSKUAlias($event)"
+          [registerType]="RegisterType"
+          (onInputChange)="onInputEditfn($event)"
+          [enteredLen]="changeddigitalExciseList.length"
+          [displayText]="'Sales'"
+          [displayStock]="true"
+          [headerData]="headerData"
+        ></app-sp-single-item>
+
+        <div class="text-center form-submit mb-15" *ngIf="exciseSalesList.length > 0">
+          <!-- <p>
+            Entered: {{ changeddigitalExciseList.length }} To | be Entered:
+            {{ exciseSalesList.length - changeddigitalExciseList.length }}
+          </p> -->
+          <button class="sp-btn px-4 mb-5" (click)="updateLicenseeSale('submit')" translate>Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="openingstock-container" *ngIf="showExcise">
+  <div class="col-12 col-md-6">
+    <h6>Excise Register</h6>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <app-sp-category
+        [brands]="subCategoryList"
+        [selectedCategory]="selectedCategory"
+        (onSelect)="onCategorySelection($event)"
+      ></app-sp-category>
+    </div>
+    <div class="row">
+      <app-sp-grid
+        *ngIf="headerArray1.length > 0"
+        [selectedData]="''"
+        [selectedPreference]="''"
+        [skuproductList]="exciseSalesList"
+        [headerData]="headerArray1"
+        [totalCount]="totalCount"
+        (onInputEdit)="onInputEditfn($event)"
+        (onRowEditClick)="onRowEditClick($event)"
+        [Ispagination]="true"
+        [editSKU]="true"
+        [page]="page"
+        (onPageChanges)="onpageChanges($event)"
+      ></app-sp-grid>
+    </div>
+    <div class="text-center form-submit mb-15">
+      <button class="sp-btn px-4 mb-5" (click)="openSummaryPopUp()">Submit</button>
+    </div>
+  </div>
+</section>
+
+<ng-template #content let-modal>
+  <!-- <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div> -->
+  <div class="modal-body">
+    <div class="form-group text-center">
+      <div>
+        <img src="assets/images/Group 8840.svg" class="img-fluid" alt="" />
+      </div>
+
+      Excise Register Successfully Submitted as on {{ currentDate | date: 'dd MMM yyyy, EEEE' }}.
+    </div>
+  </div>
+</ng-template>
+<ngx-spinner></ngx-spinner>

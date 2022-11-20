@@ -1,0 +1,51 @@
+<section class="past-exercise-register pb-5 mb-5">
+  <div class="container px-0" *ngIf="!showExcise">
+    <div class="row">
+      <div class="col-md-9 mt-4">
+        <div class="title">View Past Excise Reister</div>
+      </div>
+    </div>
+    <div class="table-responsive-md report-table mt-2 mb-5 pb-5">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Enteris</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entry of exciseEntries" (click)="onItemSelect(entry)">
+            <td>{{ entry.name }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="" *ngIf="showExcise">
+    <div class="back-btn">
+      <h3 class="title">
+        <i class="fas fa-arrow-left cp mr-2" (click)="showExcise = false"></i>View Past Excise Register
+        <button
+          class="btn btn-primary download-btn float-right"
+          [disabled]="pastExciseList.length === 0"
+          (click)="saveAspdf()"
+        >
+          <img src="assets/images/download.svg" class="img-fluid" />Download
+        </button>
+      </h3>
+    </div>
+    <div class="">
+      <app-sp-grid
+        id="my-table"
+        *ngIf="headerArray.length > 0"
+        [selectedData]="''"
+        [selectedPreference]="''"
+        [skuproductList]="pastExciseList"
+        [headerData]="headerArray1"
+        [page]="page"
+        [totalCount]="totalCount"
+        [Ispagination]="true"
+        (onPageChanges)="onpageChanges($event)"
+      ></app-sp-grid>
+    </div>
+  </div>
+</section>

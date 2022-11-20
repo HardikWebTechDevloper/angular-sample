@@ -1,0 +1,34 @@
+{
+  "Signup": {
+    "licensee": "Licensee",
+    "Licensee-KSBCL-Code": "LICENSEE KSBCL CODE",
+    "PAN-Card-Number": "PAN CARD NUMBER",
+    "Mobile-Number": "MOBILE NUMBER",
+    "Request-OTP": "Request OTP",
+    "Have-an-Account": "Have an Account?",
+    "Login": "Login",
+    "Officer": "Officer",
+    "Designation": "Designation",
+    "Jursdiction": "Jursdiction"
+  },
+  "Signin": {
+    "Mobile-Number": "Mobile Number",
+    "Password": "Password",
+    "Login": "Login",
+    "Forgot-Password": "Forgot Password ?",
+    "New-User": "New User",
+    "Sign-Up": "Sign Up"
+  },
+  "OTP": {
+    "otp-des": "We have sent OTP code to your registered mobile number. keep this window open, then enter the code.",
+    "not-recieve-code": "haven't received the code",
+    "resend": "Resend"
+  },
+  "Cpwd": {
+    "Enter-registered-mobile-number": "Enter Registered Mobile number",
+    "Enter-New-Password": "Enter New Password",
+    "Confirm-New-Password": "Confirm New Password",
+    "Register": "Register",
+    "change-password": "Change Password"
+  }
+}

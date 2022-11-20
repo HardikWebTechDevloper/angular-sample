@@ -1,0 +1,215 @@
+<!-- <section class="mobile-footer d-block d-sm-none text-center">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="footer-bottom">
+          <img src="assets/images/group-logo.png" class="img-fluid mb-2" />
+          <p>Authorized by Karnataka State Government Excise Department</p>
+          <p>All right reserved © 2021 by DexP Tool</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- User Profile Starts -->
+<section class="alert-section">
+  <div class="container-fluid">
+    <h3>Alerts</h3>
+    <div class="row pt-3">
+      <!-- <div class="col alert-user">
+        <div class="alert panel1">
+          <img src="assets/images/dashboard-inspection.svg" />
+          <h6>
+            Understocked<br />
+            Stores
+          </h6>
+          <div class="user-hover">
+            <h1 class="mb-0">36</h1>
+            <button>
+              <a href="#">
+                <img src="assets/images/arrow-right.svg" />
+              </a>
+            </button>
+          </div> 
+        </div>
+      </div> -->
+      <div class="col alert-user">
+        <div class="alert panel2">
+          <img src="assets/images/dashboard-inspection.svg" />
+          <h6>
+            Stores not updated<br />
+            Excise Register
+          </h6>
+          <div class="user-hover">
+            <h1 class="mb-0">{{ alertCounts?.totalRegisterBacklogs ? alertCounts?.totalRegisterBacklogs : 0 }}</h1>
+            <button
+              *ngIf="alertCounts?.totalRegisterBacklogs > 0"
+              [routerLink]="['/officer/alerts']"
+              [queryParams]="{ alerttype: 'backlog' }"
+            >
+              <a>
+                <img src="assets/images/arrow-right.svg" />
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col alert-user">
+        <div class="alert panel3">
+          <img src="assets/images/dashboard-inspection.svg" />
+          <h6>
+            Licensee Name<br />
+            Change & Transfer
+          </h6>
+          <div class="user-hover">
+            <h1 class="mb-0">36</h1>
+            <button>
+              <a href="#">
+                <img src="assets/images/arrow-right.svg" />
+              </a>
+            </button>
+          </div>
+        </div>
+      </div> -->
+      <div class="col alert-user">
+        <div class="alert panel4">
+          <img src="assets/images/dashboard-inspection.svg" />
+          <h6>
+            Stores not updated <br />
+            Purchase Orders
+          </h6>
+          <div class="user-hover">
+            <h1 class="mb-0">{{ alertCounts?.totalTransportPermits ? alertCounts?.totalTransportPermits : 0 }}</h1>
+            <button
+              *ngIf="alertCounts?.totalTransportPermits > 0"
+              [routerLink]="['/officer/alerts']"
+              [queryParams]="{ alerttype: 'purchase' }"
+            >
+              <a>
+                <img src="assets/images/arrow-right.svg" />
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col alert-user">
+        <div class="alert panel5">
+          <img src="assets/images/dashboard-inspection.svg" />
+          <h6>FIRs<br />(Cases Pending)</h6>
+          <div class="user-hover">
+            <h1 class="mb-0">36</h1>
+            <button>
+              <a href="#">
+                <img src="assets/images/arrow-right.svg" />
+              </a>
+            </button>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</section>
+<section class="charts-section">
+  <div class="container-fluid">
+    <h3>Target vs Actual</h3>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="litre-range">
+          <h4 class="dot-css">Range (Litres)</h4>
+
+          <div style="display: block">
+            <canvas
+              baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels1"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+            >
+            </canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="licensee-range">
+          <h4 class="dot-css">Licensee (Not Acheived)</h4>
+          <div style="display: block">
+            <canvas
+              baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+            >
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="user-panels pb-5 mb-5">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col col-6">
+        <div class="box1">
+          <img src="assets/images/analyticsbg.svg" class="analytics d-none d-sm-block" />
+          <div class="user-box">
+            <img src="assets/images/dashboard-der.svg" />
+            <h4>Digital Excise Register</h4>
+          </div>
+          <div class="hover-btn">
+            <button [routerLink]="['/officer/excise-register']">
+              <a>
+                <img src="assets/images/arrow-right.svg" />
+              </a>
+            </button>
+          </div>
+          <!-- <div class="user-hover">
+            <button [routerLink]="['/officer/excise-register']">
+              <a>
+                <img src="assets/images/arrow-right.svg" />
+              </a>
+            </button>
+          </div> -->
+        </div>
+      </div>
+      <!-- <div class="col">
+        <div class="box2">
+          <div class="user-box">
+            <img src="assets/images/dashboard-inspection.svg" />
+            <h4>Inspections</h4>
+            <div class="user-text">Coming Soon</div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="box3">
+          <div class="user-box">
+            <img src="assets/images/mark_chat_unread-24px.svg" />
+            <h4>Circulars, Notices, <br />Amendments</h4>
+            <div class="user-text">Coming Soon</div>
+          </div>
+        </div>
+      </div> -->
+      <div class="col col-6">
+        <div class="box4 cp" [routerLink]="['/officer/store-profile-list']">
+          <div class="user-box">
+            <img src="assets/images/dashboard-aricon1.svg" />
+            <h4>Store Details & Documents</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col col-6">
+        <div class="box5 cp" [routerLink]="['/officer-analytics']">
+          <div class="user-box">
+            <img src="assets/images/dashboard-aricon1.svg" />
+            <h4>Analytics & Reports</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

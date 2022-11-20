@@ -1,0 +1,93 @@
+<div class="report-content">
+  <div class="modal-header">
+    <h5 class="modal-title">Create Report</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">
+      <span aria-hidden="true"><img src="assets/images/modal-close.svg" class="img-fluid" /></span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="reports">
+      <form [formGroup]="reportForm">
+        <div class="row">
+          <div class="col-md-12">
+            <h5>Report Name: {{ reportName }}</h5>
+          </div>
+          <!-- <div class="col-md-9">
+            <input
+              type="text"
+              formControlName="reportName"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid': reportFormControl.reportName.invalid && reportFormControl.reportName.touched,
+                'form-control': true,
+                'is-valid':
+                  reportFormControl.reportName.valid &&
+                  (reportFormControl.reportName.dirty || reportFormControl.reportName.touched)
+              }"
+              fo
+            />
+            <div class="error-msg" *ngIf="submitted && reportFormControl.reportName.invalid">
+              Please Enter a Report Name
+            </div>
+          </div> -->
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-md-8 form-row ml-1">
+            <div class="form-group mr-2">
+              <label for="date">Date </label>
+              <!-- <select id="date" class="form-control" [(ngModel)]="dateRange" [ngModelOptions]="{ standalone: true }">
+                <option *ngFor="let mon of monthArr" [value]="mon.id">{{ mon.display }}</option>
+              </select> -->
+              <div class="input-group">
+                <input
+                  id="model"
+                  class="form-control"
+                  placeholder="yyyy-mm-dd"
+                  (dateSelect)="onDateSelect($event)"
+                  name="dp"
+                  [(ngModel)]="model"
+                  [ngModelOptions]="{ standalone: true }"
+                  ngbDatepicker
+                  #d="ngbDatepicker"
+                  [maxDate]="maxDate"
+                />
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                    <i class="fas fa-calendar-alt"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="action">Unit of Measure</label>
+              <select
+                id="action"
+                class="form-control"
+                [(ngModel)]="unitOfmeasure"
+                [ngModelOptions]="{ standalone: true }"
+              >
+                <!-- <option value="" selected>Select action</option> -->
+                <option value="litre">Litre</option>
+                <option *ngIf="userDetails.DesignationCode == 'C'" value="rupees">Rupees</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4 text-right px-3">
+            <button
+              class="btn btn-primary modal-report mt-4"
+              (click)="submitted = true; reportForm.valid && createReport()"
+            >
+              Create Report</button
+            ><br />
+            <!-- <button class="btn btn-primary modal-save mt-4">Save</button> -->
+          </div>
+        </div>
+      </form>
+      <div *ngIf="pdfURL">
+        <iframe width="600" height="500" title="iframe-box1" class="iframe-area" [src]="returnURL(pdfURL)"> </iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<ngx-spinner></ngx-spinner>

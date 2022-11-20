@@ -1,0 +1,99 @@
+<section class="landing-page-section">
+  <div class="p-0 h-100">
+    <div class="row no-gutters h-100">
+      <div class="col-lg-5 h-100">
+        <app-banner></app-banner>
+      </div>
+      <div class="col-lg-7">
+        <div class="signup-form h-100">
+          <div class="row signup-form-top justify-content-between align-items-center">
+            <div class="col">
+              <img src="../../../assets/images/dexp-svg.svg" class="img-fluid" alt="" />
+            </div>
+            <div class="col-auto">
+              <app-language-selector></app-language-selector>
+            </div>
+          </div>
+
+          <div class="form-section sign-in-form my-4 my-lg-0">
+            <app-alert></app-alert>
+            <form [formGroup]="loginForm" id="licensee-login" (ngSubmit)="loginSubmit()">
+              <div class="form-group">
+                <label translate>Mobile-Number</label>
+                <input
+                  type="text"
+                  [ngClass]="{
+                    'is-invalid': loginFormControl.MobileNumber.invalid && loginFormControl.MobileNumber.touched,
+                    'form-control': true,
+                    'is-valid':
+                      loginFormControl.MobileNumber.valid &&
+                      (loginFormControl.MobileNumber.dirty || loginFormControl.MobileNumber.touched)
+                  }"
+                  formControlName="MobileNumber"
+                  id="MobileNumber"
+                  placeholder="9999999999"
+                  appNumbersOnly
+                  appMoveFocus
+                  maxlength="10"
+                />
+                <div
+                  class="error-msg"
+                  *ngIf="loginFormControl.MobileNumber.invalid && loginFormControl.MobileNumber.touched"
+                >
+                  Please enter a valid 10 digit mobile number
+                </div>
+              </div>
+              <div class="form-group position-relative">
+                <label translate>Password</label>
+                <div class="position-relative pwd pwd-placeholder" [ngClass]="{ active: pwdShow }">
+                  <input
+                    [type]="pwdShow ? 'text' : 'password'"
+                    [ngClass]="{
+                      'is-invalid': loginFormControl.password.invalid && loginFormControl.password.touched,
+                      'form-control': true,
+                      'is-valid':
+                        loginFormControl.password.valid &&
+                        (loginFormControl.password.dirty || loginFormControl.password.touched)
+                    }"
+                    formControlName="password"
+                    id="password"
+                    appMoveFocus
+                    placeholder="* * * * * * * *"
+                  />
+                  <div class="pwd-toggle px-2" (click)="pwdShow = !pwdShow">
+                    <img src="../../../assets/images/pwd-hide.svg" class="img-fluid" />
+                  </div>
+                </div>
+                <div class="error-msg" *ngIf="loginFormControl.password.invalid && loginFormControl.password.touched">
+                  Cannot be empty
+                </div>
+              </div>
+              <button
+                type="submit"
+                [disabled]="!loginForm.valid || isLoading"
+                class="btn btn-primary w-100 d-block mt-5"
+                translate
+              >
+                Login
+              </button>
+              <div class="login-user-links mt-3">
+                <a
+                  [routerLink]="['/forgot-password']"
+                  routerLinkActive="router-link-active"
+                  class="font-weight-bold text-uppercase"
+                  translate
+                  >Forgot-Password
+                </a>
+                |
+                <a [routerLink]="['/signup']" class="font-weight-bold text-uppercase" translate> New-User-Sign-Up</a>
+              </div>
+            </form>
+          </div>
+
+          <h6>Authorized by Karnataka State Government Excise Department</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<ngx-spinner></ngx-spinner>

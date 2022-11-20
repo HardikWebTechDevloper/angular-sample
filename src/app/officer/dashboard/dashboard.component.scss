@@ -1,0 +1,196 @@
+section .container-fluid {
+  padding: 0px 110px;
+}
+.alert-user h6 {
+  margin: 20px 0px 30px;
+}
+.alert-user .alert {
+  padding: 15px;
+  color: #001f38;
+  height: 200px;
+  position: relative;
+}
+.alert-user .alert .user-hover button {
+  width: 26px;
+  height: 28px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: none;
+  color: #d5797f;
+  text-transform: uppercase;
+  font: normal normal normal 17px NunitoSans-SemiBold;
+  margin-top: 10px;
+  display: block;
+  position: absolute;
+  right: 15px;
+}
+.user-panels .box1 .hover-btn button {
+  width: 26px;
+  height: 28px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: none;
+  color: #d5797f;
+  text-transform: uppercase;
+  font: normal normal normal 17px NunitoSans-SemiBold;
+  margin-top: 10px;
+  display: block;
+}
+.hover-btn,
+.hover-btn2 {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+.alert-user .user-hover button,
+.user-panels .box1 .hover-btn2 button {
+  display: none;
+}
+.alert-user .user-hover {
+  display: flex;
+  justify-content: space-between;
+}
+.alert-user .user-hover h1 {
+  position: absolute;
+  bottom: 15px;
+}
+.alert-section {
+  border-bottom: 2px solid #ccc;
+  padding: 30px 0px 40px;
+}
+.charts-section {
+  padding: 40px 0px;
+}
+.user-panels .box1 {
+  background: #4f50ad;
+  padding: 15px;
+  position: relative;
+  height: 200px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.user-panels .box2 {
+  background-color: #34a9ed;
+  height: 200px;
+  border-radius: 5px;
+  padding: 15px;
+  position: relative;
+  margin-bottom: 15px;
+}
+.user-panels .box3 {
+  background: #d55083;
+  height: 200px;
+  border-radius: 5px;
+  padding: 15px;
+  position: relative;
+  margin-bottom: 15px;
+}
+.user-panels .box4 {
+  background: #1e81ce;
+  height: 200px;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+.user-panels .box5 {
+  background: #24ba80;
+  height: 200px;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+.user-panels .box1 .analytics {
+  position: absolute;
+  width: 80%;
+  top: 10px;
+}
+.user-panels .user-box h4 {
+  font-family: "NunitoSans-Bold";
+  font-size: 18px;
+  line-height: 24px;
+  color: #fff;
+  margin-top: 20px;
+}
+.user-panels .user-box .user-text {
+  position: absolute;
+  background: #fff;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  bottom: 20px;
+  font-family: "NunitoSans-Bold";
+  font-size: 14px;
+  padding: 4px;
+  text-transform: uppercase;
+}
+.alert-user .panel1 {
+  background-color: #dbf3ff;
+}
+.alert-user .panel2 {
+  background-color: #ffe4da;
+}
+.alert-user .panel3 {
+  background-color: #e0fff5;
+}
+.alert-user .panel4 {
+  background-color: #fff5e1;
+}
+.alert-user .panel5 {
+  background-color: #ffecf4;
+}
+.alert-user,
+.user-panels .col {
+  max-width: 220px;
+}
+.dot-css {
+  display: list-item;
+  list-style-type: disc;
+  list-style-position: inside;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  section .container-fluid,
+  footer .container-fluid {
+    padding: 15px;
+  }
+  .alert-user {
+    max-width: 100%;
+  }
+  .alert-user h6 {
+    font-size: 14px;
+  }
+  .alert-user .user-hover h1 {
+    font-size: 30px;
+  }
+  .alert-section {
+    padding: 0px 0px 20px;
+  }
+  .charts-section {
+    padding: 20px 0px;
+  }
+  .user-panels .user-box h4 {
+    font-size: 20px;
+    line-height: 24px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  section .container-fluid,
+  footer .container-fluid {
+    padding: 0px 15px;
+  }
+  .user-panels .user-box h4 {
+    font-size: 14px;
+  }
+  .alert-user {
+    max-width: 100%;
+    flex-basis: auto;
+  }
+  .user-panels .box1,
+  .user-panels .box2,
+  .user-panels .box3,
+  .user-panels .box4,
+  .user-panels .box5 {
+    height: 160px;
+  }
+}

@@ -1,0 +1,46 @@
+.opening-popup {
+  padding: 30px 0px;
+
+  .title {
+    text-align: center;
+  }
+
+  table {
+    width: 80%;
+    margin: 0 auto;
+
+    tr:nth-child(2) {
+      td {
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+    padding: 20px;
+    text-transform: uppercase;
+    color: #1e81ce;
+
+    &:hover {
+      color: #1e81ce;
+    }
+
+    &::before {
+      content: "";
+      margin-right: 20px;
+      font-size: 17px;
+      border: solid #1e81ce;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 3px;
+      transform: rotate(135deg);
+      -webkit-transform: rotate(135deg);
+    }
+  }
+
+  .save-submit-btn {
+    width: 280px;
+    margin: 30px 0px;
+  }
+}

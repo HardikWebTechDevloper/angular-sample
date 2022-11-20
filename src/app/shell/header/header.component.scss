@@ -1,0 +1,227 @@
+@import "src/theme/theme-variables";
+.navbar {
+  margin-bottom: $spacer;
+}
+
+.nav-link.dropdown-toggle {
+  cursor: pointer;
+}
+
+/* navbar */
+
+.navbar {
+  height: 90px;
+  box-shadow: 0px 3px 6px #0000000b;
+  background-color: #fff;
+  padding: 0px 110px;
+}
+
+.navbar .form-inline div {
+  padding: 32px;
+  // display: flex;
+  align-items: center;
+  font: normal normal normal 16px NunitoSans-SemiBold;
+}
+
+.navbar .form-inline div:nth-child(3) {
+  border-left: 1.5px solid #d9d9d9;
+  margin-left: 15px;
+}
+
+.navbar .form-inline div img {
+  margin-right: 5px;
+}
+
+.navbar .form-inline div.active {
+  border-bottom: 3px solid #1e81ce;
+  color: #1e81ce;
+}
+
+.navbar .form-inline .lang-switch {
+  font-size: 13px;
+  color: #adadad;
+}
+
+.navbar .form-inline .lang-switch span {
+  margin-right: 15px;
+}
+
+.navbar .form-inline .lang-switch span:first-child {
+  margin-left: -15px;
+}
+
+.navbar .form-inline .lang-switch span.active {
+  color: #1e81ce;
+}
+
+.navbar .logout-link,
+.navbar .user-link {
+  border-right: 1px solid gray;
+}
+
+.navbar .form-inline .user-link img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.navbar .form-inline .user-link div {
+  // display: block;
+  padding: 10px;
+  width: 100%;
+}
+.navbar .form-inline .user-link {
+  padding: 20px 50px 0px 20px !important;
+}
+.navbar .form-inline .user-link a {
+  color: #000;
+  text-decoration: none;
+  font-family: "NunitoSans-Bold";
+  position: relative;
+}
+.navbar .form-inline .user-link small {
+  text-transform: uppercase;
+  color: #bbb;
+  font-size: 10px;
+}
+.navbar .form-inline .user-link a span::after {
+  content: "";
+  margin-left: 20px;
+  font-size: 17px;
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  position: absolute;
+  right: -20px;
+  top: 5px;
+}
+.navbar .form-inline .user-link .dropdown-toggle::after {
+  display: none;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navbar {
+    height: 60px;
+    padding: 0px 20px;
+  }
+  .navbar-light .navbar-brand {
+    font-size: 18px;
+  }
+  .navbar .form-inline div {
+    padding: 20px;
+  }
+  .navbar .logout-link {
+    height: 22px;
+  }
+}
+@media (max-width: 767px) {
+  .navbar {
+    height: 52px;
+    padding: 0px 15px;
+  }
+  .navbar .navbar-brand span {
+    font-size: 11px;
+    line-height: 31px;
+    font-weight: 600;
+    margin-left: 8px;
+  }
+  .navbar .navbar-toggler {
+    border: transparent;
+  }
+}
+.wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  background: #7386D5;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+#sidebar.active {
+  min-width: 100px;
+  max-width: 100px;
+  text-align: center;
+}
+
+#sidebar.active .sidebar-header h3,
+#sidebar.active .CTAs {
+  display: none;
+}
+
+#sidebar.active .sidebar-header strong {
+  display: block;
+}
+
+#sidebar ul li a {
+  text-align: left;
+}
+
+#sidebar.active ul li a {
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 0.85em;
+}
+
+#sidebar.active ul li a i {
+  margin-right: 0;
+  display: block;
+  font-size: 1.8em;
+  margin-bottom: 5px;
+}
+
+#sidebar.active ul ul a {
+  padding: 10px !important;
+}
+
+#sidebar.active .dropdown-toggle::after {
+  top: auto;
+  bottom: 10px;
+  right: 50%;
+  -webkit-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  transform: translateX(50%);
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: #6d7fcc;
+}
+
+#sidebar .sidebar-header strong {
+  display: none;
+  font-size: 1.8em;
+}
+
+#sidebar ul.components {
+  padding: 20px 0;
+  border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+}
+
+#sidebar ul li a:hover {
+  color: #7386D5;
+  background: #fff;
+  border-bottom:  2px solid black;
+}
+
+#sidebar ul li a i {
+  margin-right: 10px;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+  color: #fff;
+  background: #6d7fcc;
+}

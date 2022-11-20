@@ -1,0 +1,35 @@
+<section class="opening-popup">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12 custom-table">
+        <h3 class="title" translate>Opening-Stock-Summary</h3>
+        <div class="col-12">
+          <app-alert></app-alert>
+        </div>
+        <div class="exceise-register-table mt-4">
+          <span *ngIf="headerArray.length > 0">
+            <app-sp-grid
+              [selectedData]="'T'"
+              [selectedPreference]="'L'"
+              [headerData]="headerArray"
+              [skuproductList]="totalExciseList"
+              [totalCount]="10"
+              [Ispagination]="false"
+            ></app-sp-grid>
+          </span>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-center">
+              <a (click)="savecloseModal('back')" translate>Back</a>
+              <button class="sp-btn save-submit-btn" (click)="savecloseModal('saveandsubmit')" translate>
+                Save-and-Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<ngx-spinner></ngx-spinner>

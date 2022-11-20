@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 custom-table">
+      <div class="modal-title-row">
+        <h6 class="title float-right mr-2">Sales Summary</h6>
+        <span class="ml-2">{{ currentDate | date: 'dd MMM yyyy, EEEE' }}</span>
+      </div>
+      <!-- <div class="col-12">
+        <app-alert></app-alert>
+      </div> -->
+      <div class="exceise-register-table">
+        <div *ngIf="headerArray.length > 0">
+          <app-sp-grid
+            [selectedData]="''"
+            [selectedPreference]="''"
+            [skuproductList]="summaryList"
+            [headerData]="headerArray"
+            [totalCount]="totalCount"
+            [Ispagination]="false"
+          ></app-sp-grid>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mt-5">
+          <div class="important-msg pl-3 pt-2">
+            <h3>Important</h3>
+            <input type="checkbox" [(ngModel)]="confirmPurchaseCount" [ngModelOptions]="{ standalone: true }" /><span
+              >&nbsp;&nbsp;Please make sure you have done physical count to match closing balance</span
+            ><br />
+            <input type="checkbox" [(ngModel)]="confirmPurchase" [ngModelOptions]="{ standalone: true }" /><span
+              >&nbsp;&nbsp;Once confirmed, data cannot be modified later</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <app-alert></app-alert>
+          <div class="text-center">
+            <button
+              class="sp-btn save-submit-btn"
+              [disabled]="!confirmPurchaseCount && !confirmPurchase"
+              (click)="submitSaleSummary()"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

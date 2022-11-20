@@ -1,0 +1,23 @@
+<div class="col-sm-12">
+  <div class="table-slider">
+    <div class="wrapper table-carousel">
+      <owl-carousel-o [options]="customOptions" (change)="getData($event)">
+        <ng-container *ngFor="let brand of brands; let i = index">
+          <ng-template class="item slide" carouselSlide [id]="i">
+            <div
+              class="slide cp"
+              [ngClass]="{
+                'item-active': selectedCategory === brand.SubCategory,
+                'disable-cat': brand.TotalSKUs === 0 || brand.TotalSKUs === '0'
+              }"
+              (click)="selectCategory(brand)"
+              title="{{ brand.SubCategory }}"
+            >
+              {{ brand.SubCategory }}
+            </div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+app-sp-grid {
+  width: 100%;
+}
+app-sp-category {
+  width: 100%;
+}
+app-sp-single-item {
+  width: 100%;
+}
+.openingstock-container {
+  padding: 0px 96px;
+}
+
+@media (max-width: 767px) {
+  .openingstock-container {
+    padding: 0px;
+  }
+}
+.mb-15 {
+  margin-bottom: 5rem !important;
+}
+.disbaleContent {
+  pointer-events: none;
+  opacity: 0.8;
+}

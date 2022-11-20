@@ -1,0 +1,361 @@
+<section class="landing-page-section">
+  <div class="p-0 h-100">
+    <div class="row no-gutters h-100">
+      <div class="col-lg-5 h-100">
+        <app-banner></app-banner>
+      </div>
+      <div class="col-lg-7">
+        <!-- ****************signup section start****************  -->
+        <div class="signup-form h-100" *ngIf="!otpshow && !createPassword && !successMsg">
+          <div class="row signup-form-top justify-content-between align-items-center">
+            <div class="col">
+              <img src="../../../assets/images/dexp-svg.svg" class="img-fluid" alt="" />
+            </div>
+            <div class="col-auto">
+              <app-language-selector></app-language-selector>
+            </div>
+          </div>
+          <div class="form-section my-4 my-lg-0">
+            <div class="alert-container">
+              <app-alert></app-alert>
+            </div>
+            <!-- licensee and officer selection start  -->
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="radio"
+                class="custom-control-input toggle-s-h"
+                (click)="signupToggle('licensee')"
+                checked
+                id="licensee"
+                name="type-select"
+                value="customEx"
+              />
+              <label class="custom-control-label" for="licensee" translate> Licensee </label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input
+                type="radio"
+                class="custom-control-input toggle-s-h"
+                (click)="signupToggle('officer')"
+                id="officer"
+                name="type-select"
+                value="customEx"
+              />
+              <label class="custom-control-label" for="officer" translate>Officer</label>
+            </div>
+            <!-- licensee and officer selection end  -->
+            <!-- licensee signup form start  -->
+            <div class="licensee-form" *ngIf="licenseeForm">
+              <form [formGroup]="licenseeSignup" class="licensee-register-form" (ngSubmit)="verifyUser()">
+                <div class="form-group mt-4">
+                  <label for="" translate>Licensee KSBCL Code</label>
+                  <input
+                    type="text"
+                    [ngClass]="{
+                      'is-invalid': licenseeFormControl.lCode.invalid && licenseeFormControl.lCode.touched,
+                      'form-control': true,
+                      'is-valid':
+                        licenseeFormControl.lCode.valid &&
+                        (licenseeFormControl.lCode.dirty || licenseeFormControl.lCode.touched)
+                    }"
+                    formControlName="lCode"
+                    id="lCode"
+                    placeholder="Licensee Code"
+                    appNumbersOnly
+                  />
+                  <!-- {{licenseeFormControl.lCode | json}}=== -->
+                  <div class="error-msg" *ngIf="licenseeFormControl.lCode.invalid && licenseeFormControl.lCode.touched">
+                    Please enter a valid Licensee Code
+                  </div>
+                  <div
+                    class="error-msg"
+                    *ngIf="licenseeFormControl.lCode.dirty && licenseeFormControl.lCode?.errors?.minlength"
+                  >
+                    Licensee Code must contain minimum 3 numbers
+                  </div>
+                  <div
+                    class="error-msg"
+                    *ngIf="licenseeFormControl.lCode.dirty && licenseeFormControl.lCode?.errors?.maxlength"
+                  >
+                    Licensee Code should not exceed more than 10 numbers
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="" translate>PAN Card Number</label>
+                  <input
+                    type="text"
+                    [ngClass]="{
+                      'is-invalid': licenseeFormControl.panNumber.invalid && licenseeFormControl.panNumber.touched,
+                      'form-control': true,
+                      'is-valid':
+                        licenseeFormControl.panNumber.valid &&
+                        (licenseeFormControl.panNumber.dirty || licenseeFormControl.panNumber.touched)
+                    }"
+                    formControlName="panNumber"
+                    id="panNumber"
+                    placeholder="9999999999999"
+                    maxlength="10"
+                    appMoveFocus
+                  />
+                  <div
+                    class="error-msg"
+                    *ngIf="licenseeFormControl.panNumber.invalid && licenseeFormControl.panNumber.touched"
+                  >
+                    Please enter a valid 10 digit PAN number
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="" translate>Mobile-Number</label>
+                  <input
+                    type="text"
+                    [ngClass]="{
+                      'is-invalid': licenseeFormControl.phone.invalid && licenseeFormControl.phone.touched,
+                      'form-control': true,
+                      'is-valid':
+                        licenseeFormControl.phone.valid &&
+                        (licenseeFormControl.phone.dirty || licenseeFormControl.phone.touched)
+                    }"
+                    formControlName="phone"
+                    id="phone"
+                    placeholder="9999999999"
+                    appAllowNumbersOnly
+                    maxlength="10"
+                  />
+                  <div class="error-msg" *ngIf="licenseeFormControl.phone.invalid && licenseeFormControl.phone.touched">
+                    Please enter a valid 10 digit Mobile number
+                  </div>
+                </div>
+                <button
+                  type="submit"
+                  [disabled]="!licenseeSignup.valid"
+                  class="btn btn-primary w-100 d-block mt-5"
+                  translate
+                >
+                  Request OTP
+                </button>
+                <p class="text-center mt-4 text-uppercase font-weight-bold" translate>
+                  Have an Account? <a [routerLink]="['/login']" translate>Login</a>
+                </p>
+              </form>
+            </div>
+            <!-- licensee signup form end  -->
+
+            <!-- officer signup form start  -->
+            <div class="officer-form" *ngIf="officerForm">
+              <form [formGroup]="officerSignup" class="officer-register-form" (ngSubmit)="verifyUser()" appMoveFocus>
+                <div class="form-group mt-4">
+                  <label for="designation" translate>Designation</label>
+                  <select
+                    [ngClass]="{
+                      'is-invalid': officerFormControl.designation.invalid && officerFormControl.designation.touched,
+                      'custom-select': true,
+                      'is-valid':
+                        officerFormControl.designation.valid &&
+                        (officerFormControl.designation.dirty || officerFormControl.designation.touched)
+                    }"
+                    formControlName="designation"
+                    id="designation"
+                    #designation
+                    (change)="filterJurisdiction(designation.value)"
+                  >
+                    <option value="" translate="">Select-Designation</option>
+                    <option *ngFor="let item of designations" [value]="item.DesignationCode">
+                      {{ item.Description }}
+                    </option>
+                  </select>
+                  <div
+                    class="error-msg"
+                    *ngIf="officerFormControl.designation.invalid && officerFormControl.designation.touched"
+                  >
+                    Please select designation
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="jurisdiction" translate>Jursdiction</label>
+                  <select
+                    [ngClass]="{
+                      'is-invalid': officerFormControl.jurisdiction.invalid && officerFormControl.jurisdiction.touched,
+                      'custom-select': true,
+                      'is-valid':
+                        officerFormControl.jurisdiction.valid &&
+                        (officerFormControl.jurisdiction.dirty || officerFormControl.jurisdiction.touched)
+                    }"
+                    formControlName="jurisdiction"
+                    id="jurisdiction"
+                  >
+                    <option value="" translate>Select-Jurisdiction</option>
+                    <option *ngFor="let item of dJurisdiction" [value]="item.Jurisdiction">
+                      {{ item.Description }}
+                    </option>
+                  </select>
+                  <div
+                    class="error-msg"
+                    *ngIf="officerFormControl.jurisdiction.invalid && officerFormControl.jurisdiction.touched"
+                  >
+                    Please select Jurisdiction
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="" translate>Mobile-Number</label>
+                  <input
+                    type="text"
+                    [ngClass]="{
+                      'is-invalid': officerFormControl.phone.invalid && officerFormControl.phone.touched,
+                      'form-control': true,
+                      'is-valid':
+                        officerFormControl.phone.valid &&
+                        (officerFormControl.phone.dirty || officerFormControl.phone.touched)
+                    }"
+                    formControlName="phone"
+                    id="phone"
+                    placeholder="9999999999"
+                    maxlength="10"
+                  />
+                  <div class="error-msg" *ngIf="officerFormControl.phone.invalid && officerFormControl.phone.touched">
+                    Please enter a valid 10 digit Mobile number
+                  </div>
+                </div>
+                <button type="submit" [disabled]="!officerSignup.valid" class="btn btn-primary w-100 d-block mt-5">
+                  Request OTP
+                </button>
+                <p class="text-center mt-4 text-uppercase font-weight-bold" translate>
+                  Have an Account <a [routerLink]="['/login']" translate>Login</a>
+                </p>
+              </form>
+            </div>
+            <!-- officer signup form end  -->
+          </div>
+          <h6>Authorized by Karnataka State Government Excise Department</h6>
+        </div>
+        <!-- ***************signup section end*******************  -->
+
+        <!-- *********otp section**********  -->
+        <app-otp *ngIf="otpshow" [phoneNum]="phoneNumber" (otpResult)="otpSubmitted($event)"></app-otp>
+        <!-- *********otp section end******* -->
+
+        <!-- *************************password create section ***************************** -->
+        <div class="signup-form h-100" *ngIf="createPassword">
+          <div class="row signup-form-top justify-content-between align-items-center">
+            <div class="col">
+              <img src="../../../assets/images/dexp-svg.svg" class="img-fluid" alt="" />
+            </div>
+            <div class="col-auto">
+              <app-language-selector></app-language-selector>
+            </div>
+          </div>
+          <div class="form-section sign-in-form my-4 my-lg-0">
+            <app-alert></app-alert>
+
+            <form [formGroup]="registerForm" id="change-password" (ngSubmit)="signupRegisterUser()">
+              <div class="form-group pwd-placeholder">
+                <label translate>Enter-New-Password</label>
+                <input
+                  type="password"
+                  class="form-control letter-space"
+                  [ngClass]="{
+                    'is-invalid': registerFormControl.password.invalid && registerFormControl.password.touched,
+                    'is-valid':
+                      registerFormControl.password.valid &&
+                      (registerFormControl.password.dirty || registerFormControl.password.touched)
+                  }"
+                  formControlName="password"
+                  id="password"
+                  placeholder="********"
+                />
+                <div
+                  class="error-msg"
+                  *ngIf="registerFormControl.password.invalid && registerFormControl.password.touched"
+                >
+                  <div *ngIf="registerFormControl.password.errors.required">Can not be empty</div>
+                  <div *ngIf="registerFormControl.password.errors.pattern">
+                    Password length should minimum 8 characters, one alphabet, one digit
+                  </div>
+                </div>
+              </div>
+              <div class="form-group position-relative">
+                <label translate>Confirm-New-Password</label>
+                <div class="position-relative pwd pwd-placeholder">
+                  <input
+                    [type]="showPassword ? 'text' : 'password'"
+                    class="form-control letter-space"
+                    formControlName="confirmPassword"
+                    id="confirmpwd"
+                    placeholder="********"
+                  />
+                  <div class="pwd-toggle px-2">
+                    <img
+                      *ngIf="showPassword"
+                      src="../../../assets/images/pwd-hide.svg"
+                      class="img-fluid"
+                      alt=""
+                      (click)="showPassword = !showPassword"
+                    />
+                    <img
+                      *ngIf="!showPassword"
+                      src="../../../assets/images/Icon_Password Hide.png"
+                      class="img-fluid"
+                      alt=""
+                      (click)="showPassword = !showPassword"
+                    />
+                  </div>
+                  <div
+                    class="error-msg"
+                    *ngIf="registerFormControl.confirmPassword.invalid && registerFormControl.confirmPassword.touched"
+                  >
+                    <div *ngIf="registerFormControl.confirmPassword.errors.required">Can not be empty</div>
+                    <div *ngIf="registerFormControl.confirmPassword.errors.mustMatch">Passwords must match</div>
+                  </div>
+                </div>
+              </div>
+              <button
+                type="submit"
+                [disabled]="!registerForm.valid"
+                class="btn btn-primary w-100 d-block mt-5"
+                translate
+              >
+                Register
+              </button>
+              <!-- <p class="text-center mt-4 text-uppercase font-weight-bold" translate>
+                Have an Account? <a [routerLink]="['/login']" translate> Login</a>
+              </p> -->
+            </form>
+          </div>
+          <h6>Authorized by Karnataka State Government Excise Department</h6>
+        </div>
+        <!-- *****************password create section end*********************-->
+
+        <!-- *********************success message section start***********************  -->
+        <div class="signup-form h-100" *ngIf="successMsg">
+          <div class="row signup-form-top justify-content-between align-items-center">
+            <div class="col">
+              <img src="../../../assets/images/dexp-svg.svg" class="img-fluid" alt="" />
+            </div>
+            <div class="col-auto">
+              <app-language-selector></app-language-selector>
+            </div>
+          </div>
+          <div class="sign-in-form my-4 my-lg-0">
+            <div class="d-flex align-items-center">
+              <img src="../../../assets/images/valid-img.svg" class="img-fluid mr-3" style="min-width: 80px" alt="" />
+              <div>
+                <h4 class="mb-0 font-weight-bold">
+                  Your password has been<br />
+                  successfully changed
+                </h4>
+              </div>
+            </div>
+            <div class="col-6">
+              <a class="btn btn-primary d-block w-100 mt-3" [routerLink]="['/login']" translate>Login</a>
+            </div>
+          </div>
+          <h6>Authorized by Karnataka State Government Excise Department</h6>
+        </div>
+        <!-- ***************success message section end******************************  -->
+      </div>
+    </div>
+  </div>
+</section>

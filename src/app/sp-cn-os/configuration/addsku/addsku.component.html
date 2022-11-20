@@ -1,0 +1,99 @@
+<!-- modal start -->
+<section class="configuration-modal">
+  <div class="container-fluid">
+    <div class="row add-sku-product">
+      <div class="col-12 col-md-6">
+        <h3 class="title">Select & Add SKU / Product</h3>
+      </div>
+      <div class="col-12 col-md-6 text-right">
+        <label class="selected-txt">Selected: {{ selectedSKUCount }}</label>
+        <button class="sp-btn noarrow-btn" (click)="addSKU()" [disabled]="selectedSKUCount === 0">Add SKU</button>
+      </div>
+      <div class="col-12">
+        <app-alert></app-alert>
+      </div>
+    </div>
+    <div class="row">
+      <app-sp-category
+        [brands]="subCategoryList"
+        [selectedCategory]="selectedCategory"
+        (onSelect)="onCategorySelection($event)"
+      ></app-sp-category>
+    </div>
+    <div class="row" *ngIf="isLoaded">
+      <app-sp-grid
+        [selectedData]="selectedData"
+        [selectedPreference]="selectedPreference"
+        [headerData]="headerArray"
+        [skuproductList]="masterSKUList"
+        [totalCount]="totalCount"
+        [searchString]="defaultSearch"
+        [Ispagination]="false"
+        (onSearch)="searchSKUbyString($event)"
+        (onSKUSelect)="onSKUSelection($event)"
+      ></app-sp-grid>
+      <!-- <div class="col-sm-12 custom-table modal-table">
+        <div class="exceise-register-table">
+          <table cellpadding="1" cellspacing="1">
+            <tr>
+              <td class="col2"></td>
+              <td class="col1 text-left">
+                <span> KSBCL SKU Code</span>
+              </td>
+            </tr>
+            <tr class="header2">
+              <td></td>
+              <td>
+                <div class="form-group has-search">
+                  <span class="form-control-feedback">
+                    <img src="../../../assets/images/search-icon.png" />
+                  </span>
+                  <input id="searchSkucode" type="text" class="form-control" placeholder="Search SKU code" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="sku1" name="sku1" />
+                  <label class="custom-control-label" for="sku1"></label>
+                </div>
+              </td>
+              <td>Bardinet French Brandy V.S.O.P</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="sku2" name="sku2" checked />
+                  <label class="custom-control-label" for="sku2"></label>
+                </div>
+              </td>
+              <td>Old Admiral VSOP Brandy</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="sku3" name="sku3" checked />
+                  <label class="custom-control-label" for="sku3"></label>
+                </div>
+              </td>
+              <td>Amruts Silver Cup Brandy</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="sku4" name="sku4" />
+                  <label class="custom-control-label" for="sku4"></label>
+                </div>
+              </td>
+              <td>Bardinet French Brandy V.S.O.P</td>
+            </tr>
+          </table>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</section>
+<ngx-spinner></ngx-spinner>
+
+<!-- modal end -->

@@ -1,0 +1,120 @@
+<div class="container">
+  <div class="row register-process-row">
+    <div class="col-12 col-md-6 order-2 order-md-6">
+      <app-reg-tabs [activePuchase]="true" [stock]="stockTab"></app-reg-tabs>
+    </div>
+    <div class="col-12 col-md-6 order-1 order-md-6">
+      <div class="register-date">
+        <p>{{ currentDate | date: 'dd MMM yyyy, EEEE' }}</p>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="validate-container" *ngIf="!puchase_Status">
+    <h4>Do you have any purchases on ({{ invoiceDate | date: 'dd MMM yyyy' }})</h4>
+    <div class="validate-btns">
+      <button type="submit" class="sp-btn" (click)="puchaseStatus(true)">Yes</button>
+      <button type="submit" class="secondary-btn" (click)="puchaseStatus(false)">No</button>
+    </div>
+    <p *ngIf="errlastUpdatedMsg">{{ errlastUpdatedMsg }}</p>
+  </div>
+  <div class="validate-container" *ngIf="puchase_Status">
+    <app-alert></app-alert>
+    <div class="validate-form">
+      <h4>Enter Purchase Invoice Number on ({{ invoiceDate | date: 'dd MMM yyyy' }})</h4>
+      <form
+        class="form-inline"
+        [ngClass]="{
+          'form-invalid': invoiceFormControl.InvoceNumber.invalid && invoiceFormControl.InvoceNumber.touched
+        }"
+        [formGroup]="InvoiceForm"
+        (keypress)="keyPressAlphaNumeric($event)"
+        (ngSubmit)="validateInvoice()"
+      >
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="" formControlName="InvoceNumber" />
+        </div>
+        <button type="submit" class="sp-btn validate-btn">Validate</button>
+        <p *ngIf="invoiceFormControl.InvoceNumber.invalid && invoiceFormControl.InvoceNumber.touched">
+          {{ errMsg }}
+        </p>
+      </form>
+    </div>
+  </div> -->
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="configuration-container">
+        <form>
+          <div class="form-row row1">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="process"
+                id="unProcessedRadio"
+                [(ngModel)]="selectedProcess"
+                value="U"
+                (click)="selectData('U')"
+              />
+              <label class="form-check-label" for="unProcessedRadio" translate>Unprocessed</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="process"
+                value="P"
+                id="proccessedRasio"
+                [(ngModel)]="selectedProcess"
+                (click)="selectData('P')"
+              />
+              <label class="form-check-label" for="proccessedRasio" translate>Processed</label>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="exceise-register-table exceise-register-purchase" *ngIf="selectedProcess === 'U'">
+    <div *ngIf="headerArray.length > 0">
+      <app-sp-grid
+        [skuproductList]="invoiceList"
+        [headerData]="headerArray"
+        [Ispagination]="true"
+        [totalCount]="totalCount"
+        [manualPagination]="true"
+        (onSKUSelect)="onInvoiceSelection($event)"
+        (onSelectCheckbox)="onSelectCheckbox($event)"
+        (onPageChanges)="onpageChanges($event)"
+      ></app-sp-grid>
+    </div>
+  </div>
+  <div class="exceise-register-table exceise-register-purchase" *ngIf="selectedProcess === 'P'">
+    <div *ngIf="headerArray1.length > 0">
+      <app-sp-grid
+        [skuproductList]="invoiceList"
+        [manualPagination]="true"
+        [totalCount]="totalCount"
+        [headerData]="headerArray1"
+        [Ispagination]="true"
+      ></app-sp-grid>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="float-right">
+        <button
+          *ngIf="enablePurchase"
+          class="sp-btn save-submit-btn"
+          (click)="submitUnproccessedData()"
+          [disabled]="selectedInvoice.length === 0"
+        >
+          Update Purchase
+        </button>
+        <button *ngIf="!enablePurchase" class="sp-btn save-submit-btn" (click)="onSalesClick()">Enter Sales</button>
+      </div>
+    </div>
+  </div>
+</div>
+<ngx-spinner></ngx-spinner>

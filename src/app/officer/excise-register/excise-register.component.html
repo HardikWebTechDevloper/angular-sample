@@ -1,0 +1,89 @@
+<section class="openingstock-container pb-5 mb-5">
+  <div class="container-fluid">
+    <div class="col-12 col-md-4 float-left px-0">
+      <h3>Excise List</h3>
+    </div>
+    <div class="col-12 col-md-8 float-left px-0">
+      <div class="col-md-3 form-group float-right">
+        <label for="category" class="disp-inline">License Category</label>
+        <select
+          id="category"
+          class="form-control"
+          [(ngModel)]="category"
+          [ngModelOptions]="{ standalone: true }"
+          (change)="onDataChange()"
+        >
+          <option value="" selected>Select action</option>
+          <option *ngFor="let category of licenseeCategoryList" [value]="category.LicenseType">
+            {{ category.LicenseType }}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-3 form-group float-right">
+        <label for="licenseeId" class="disp-inline">License Name</label>
+        <select
+          id="licenseeId"
+          class="form-control"
+          [(ngModel)]="licenseeId"
+          [ngModelOptions]="{ standalone: true }"
+          (change)="onLicenseeChange(licenseeId)"
+        >
+          <option value="" selected>Select action</option>
+          <option *ngFor="let licensee of licenseeList" [value]="licensee.LicenseeID">{{ licensee.Name }}</option>
+        </select>
+      </div>
+      <div class="col-md-3 form-group float-right">
+        <label for="model" class="disp-inline">Date</label>
+        <div class="input-group">
+          <input
+            id="model"
+            class="form-control"
+            placeholder="yyyy-mm-dd"
+            (change)="getExciseRegisterList()"
+            (dateSelect)="onDateSelect($event)"
+            name="dp"
+            [(ngModel)]="model"
+            ngbDatepicker
+            #d="ngbDatepicker"
+            [maxDate]="maxDate"
+          />
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+              <i class="fas fa-calendar-alt"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 form-group float-right">
+        <label for="range" class="disp-inline">Range</label>
+        <select
+          id="range"
+          class="form-control"
+          [(ngModel)]="range"
+          [ngModelOptions]="{ standalone: true }"
+          (change)="onDataChange()"
+        >
+          <option value="" selected>Select action</option>
+          <option *ngFor="let range of rangeList" [value]="range">{{ range }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row" *ngIf="onLoad">
+      <!-- *ngIf="onLoad" -->
+      <app-sp-grid
+        [selectedData]="''"
+        [selectedPreference]="''"
+        [skuproductList]="resultArray"
+        [headerData]="headerArray"
+        [page]="page"
+        [totalCount]="totalCount"
+        [Ispagination]="true"
+        (onPageChanges)="onPageChanges($event)"
+      ></app-sp-grid>
+    </div>
+  </div>
+</section>
+<ngx-spinner></ngx-spinner>

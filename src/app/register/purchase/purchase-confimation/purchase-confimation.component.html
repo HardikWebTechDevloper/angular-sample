@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 custom-table">
+      <div class="modal-title-row float-right">
+        <h6 class="title float-right">{{ currentDate | date: 'dd MMM yyyy, EEEE' }}</h6>
+      </div>
+      <div class="col-12">
+        <app-alert></app-alert>
+      </div>
+      <div class="exceise-register-table">
+        <div *ngIf="headerArray.length > 0 && isLoaded">
+          <app-sp-grid
+            [selectedData]="''"
+            [selectedPreference]="''"
+            [skuproductList]="purchaseInvoiceList"
+            [headerData]="headerArray"
+            [totalCount]="totalCount"
+            [Ispagination]="false"
+          ></app-sp-grid>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="text-center">
+            <button class="sp-btn save-submit-btn" (click)="openSummary()">CONFIRM INWARD</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ngx-spinner></ngx-spinner>

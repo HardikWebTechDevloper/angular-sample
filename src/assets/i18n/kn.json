@@ -1,0 +1,34 @@
+{
+    "Signup": {
+        "licensee": "ಲೈಸೆನ್ಸೀ",
+        "Licensee-KSBCL-Code": "ಲೈಸೆನ್ಸೀ KSBCL ಕೋಡ್",
+        "PAN-Card-Number": "PAN ಕಾರ್ಡ್ ನಂಬರ್",
+        "Mobile-Number": "ಮೊಬೈಲ್ ನಂಬರ್",
+        "Request-OTP": "OTP  ವಿನಂತಿ",
+        "Have-an-Account": "ನಿಮಗೆ ಖಾತೆ ಇದೆಯೇ",
+        "Login": "ಲಾಗಿನ್",
+        "Officer": "ಅಧಿಕಾರಿ",
+        "Designation": "ಹುದ್ದೆ/ಡೆಸಿಗ್ನೇಷನ್",
+        "Jursdiction": "ನ್ಯಾಯವ್ಯಾಪ್ತಿ/ಜೂರಿಸ್ಡಿಕ್ಷನ್"
+    },
+    "Signin": {
+        "Mobile-Number": "ಮೊಬೈಲ್ ನಂಬರ್",
+        "Password": "ಪಾಸ್‌ವರ್ಡ್",
+        "Login": "ಲಾಗಿನ್",
+        "Forgot-Password": "ಪಾಸ್‌ವರ್ಡ್ ಮರೆತುಹೋಯಿತು ?",
+        "New-User": "ಹೊಸ ಬಳಕೆದಾರ / ಹೊಸ ಉಸೆರ್",
+        "Sign-Up": "ಸೈನ್ ಅಪ್"
+    },
+    "OTP": {
+        "otp-des": "ನಾವು ರಿಜಿಸ್ಟರ್ಡ್ ಮೊಬೈಲ್ ನಂಬರ್ಗೆ OTP ಕೋಡ್ ಕಳುಹಿಸಿದ್ದೇವೆ. ಈ ವಿಂಡೋವನ್ನು ಓಪನ್ ಇರಿಸಿ,ನಂತರ ಕೋಡ್ ಎಂಟರ್ ಮಾಡಿ.",
+        "not-recieve-code": "ಕೋಡ್ ಸ್ವೀಕರಿಸಿಲ್ಲ",
+        "resend": "ಮರುಹೊಂದಿಸಿ (ಮತ್ತೆ ಕಳುಹಿಸಿ)"
+    },
+    "Cpwd": {
+        "Enter-registered-mobile-number": "ಎಂಟರ್ ರಿಜಿಸ್ಟರ್ಡ್ ಮೊಬೈಲ್ ನಮ್ಬರ್ (ನಂಬರ್)",
+        "Enter-New-Password": "ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಎಂಟರ್ ಮಾಡಿ",
+        "Confirm-New-Password": "ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಕಾಂಫಿರಂ ಮಾಡಿ (ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಖಚಿತಪಡಿಸಿ)",
+        "Register": "ರಿಜಿಸ್ಟರ್",
+        "change-password": "ಪಾಸ್‌ವರ್ಡ್ ಚೇಂಜ್ (ಬದಲಾವಣೆ) ಮಾಡಿ"
+    }
+}

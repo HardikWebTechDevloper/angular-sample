@@ -1,0 +1,125 @@
+<section class="configuration">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="configuration-container">
+          <div class="title" translate>Data-Entry</div>
+          <form>
+            <div class="form-row row1">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="sales"
+                  id="SalesRadio"
+                  [(ngModel)]="selectedData"
+                  value="T"
+                  (click)="selectData('T')"
+                />
+                <label class="form-check-label" for="SalesRadio" translate>Sales</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="sales"
+                  value="S"
+                  id="StockRadio"
+                  [(ngModel)]="selectedData"
+                  (click)="selectData('S')"
+                />
+                <label class="form-check-label" for="StockRadio" translate>Stock</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="configuration-container">
+          <div class="title" translate>Entry-Preference</div>
+          <form>
+            <div class="form-row row1">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  checked
+                  name="entry"
+                  value="L"
+                  id="ItemListRadio"
+                  [(ngModel)]="selectedPreference"
+                  (click)="selectPreference('L')"
+                />
+                <label class="form-check-label" for="ItemListRadio" translate>Item-List</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="entry"
+                  value="C"
+                  id="ItemByItemRadio"
+                  [(ngModel)]="selectedPreference"
+                  (click)="selectPreference('C')"
+                />
+                <label class="form-check-label" for="ItemByItemRadio" translate>Item-By-Item</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="configurationtable-container">
+  <div class="container-fluid">
+    <div class="row add-sku-product">
+      <div class="col-12 col-md-6">
+        <h3 class="title" translate>Maintain-Alias</h3>
+      </div>
+      <div class="col-12 col-md-6 text-right" *ngIf="!disableFields">
+        <button class="add-btn" (click)="openAddSKUPopup()" translate>
+          <img src="../../../assets/images/add-circle.svg" /> Add-SKU
+        </button>
+      </div>
+    </div>
+    <div class="row" *ngIf="!hideCategory">
+      <app-sp-category
+        [brands]="subCategoryList"
+        [selectedCategory]="selectedCategory"
+        (onSelect)="updateCategoryFn($event)"
+      ></app-sp-category>
+    </div>
+    <div class="row" *ngIf="headerArray.length > 0 && isLoaded">
+      <app-sp-grid
+        #spGrid
+        [selectedData]="selectedData"
+        [selectedPreference]="selectedPreference"
+        [headerData]="headerArray"
+        [skuproductList]="retailSKUList"
+        [manualPagination]="true"
+        [startIndex]="startIndex"
+        [endIndex]="endIndex"
+        [totalCount]="totalCount"
+        (onPageChanges)="onpageChanges($event)"
+        (onInputEdit)="onInputEditfn($event)"
+      ></app-sp-grid>
+    </div>
+    <div class="text-center" *ngIf="!isLoaded">No Data found</div>
+  </div>
+</section>
+
+<section>
+  <div class="container-fluid pb-5 mb-5">
+    <div class="row">
+      <div class="col-12 float-right">
+        <app-alert></app-alert>
+      </div>
+      <div class="col-sm-12 text-right mb-5 mb-lg-0">
+        <button class="sp-btn configuration-btn" (click)="updateFn()" translate>Save</button>
+      </div>
+    </div>
+  </div>
+</section>
+<ngx-spinner></ngx-spinner>

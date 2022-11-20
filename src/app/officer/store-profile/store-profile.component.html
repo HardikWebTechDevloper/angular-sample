@@ -1,0 +1,78 @@
+<!-- Store Profile -->
+<section class="store-profile-view pb-5 mb-5">
+  <div class="container-fluid mb-3" *ngIf="onLoad">
+    <div class="back-btn cp" [routerLink]="['/officer/store-profile-list']">
+      <!-- <img src="assets/images/logout-24px.svg" /> -->
+      <h3><i class="fas fa-arrow-left cp mr-2"></i></h3>
+      <!-- <p>Back</p> -->
+    </div>
+    <h3><img src="assets/images/store-profile.svg" class="mr-2" />Store Profile</h3>
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="Licensee-name">Licensee Name</label>
+          <div class="input-value">{{ licenseeDetails.Name ? licenseeDetails.Name : '-' }}</div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="Licensee-holder">Licensee Holder Name</label>
+          <div class="input-value">{{ licenseeDetails.OwnerName ? licenseeDetails.OwnerName : '-' }}</div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="address">Address</label>
+          <div class="input-value">
+            {{ licenseeDetails.Address ? licenseeDetails.Address : '-' }}
+            <a
+              [href]="
+                'https://maps.google.com/?q=' +
+                licenseeDetails.StoreLocationLAT +
+                ',' +
+                licenseeDetails.StoreLocationLON
+              "
+              target="_blank"
+            >
+              <img src="assets/images/map.png"
+            /></a>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="street">Street</label>
+          <div class="input-value">{{ licenseeDetails.Street ? licenseeDetails.Street : '-' }}</div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="City">City</label>
+          <div class="input-value">{{ licenseeDetails.City ? licenseeDetails.City : '-' }}</div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="contact">Contact Number</label>
+          <div class="input-value">{{ licenseeDetails.Phone_Number ? licenseeDetails.Phone_Number : '-' }}</div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="email">Email ID</label>
+          <div class="input-value">{{ licenseeDetails.Email ? licenseeDetails.Email : '-' }}</div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="Licensee-code">License KSBCL Code</label>
+          <div class="input-value">{{ licenseeDetails.LicenseeID ? licenseeDetails.LicenseeID : '-' }}</div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="validity">Licensee Validity</label>
+          <div class="input-value">{{ licenseeDetails.ValidityEndDate | date: 'MM / yyyy' }}</div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="pan">PAN Number</label>
+          <div class="input-value">{{ licenseeDetails.PAN ? licenseeDetails.PAN : '-' }}</div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

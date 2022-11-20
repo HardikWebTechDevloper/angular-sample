@@ -1,0 +1,94 @@
+<div class="col-md-12 slider-details" *ngIf="resultArray.length > 0">
+  <div class="slider-page-count">
+    <h3>
+      {{ indexValue }}/<span>{{ resultArray.length }}</span>
+    </h3>
+  </div>
+  <div class="table-slider product-slider">
+    <div class="wrapper table-carousel">
+      <owl-carousel-o [options]="customOptions" (changed)="getData($event)">
+        <ng-container *ngFor="let data of resultArray; let i = index">
+          <div class="row">{{ i + 1 }} / {{ resultArray.length }}</div>
+          <ng-template class="item slide" carouselSlide [id]="i">
+            <div class="slide cp d-flex align-items-center w-100">
+              <img src="assets/images/p1.png" class="img-fluid w-25" />
+              <div class="d-flex text-left table-desc">
+                <form action="" class="w-100">
+                  <span class="product-code">KSBCL SKU Code</span>
+                  <span class="product-name">{{ data.SKU }} </span>
+                  <div class="form-group edit mt-4">
+                    <label class="text-left product-code">Alias</label>
+                    <input
+                      id="Alias{{ i }}"
+                      type="text"
+                      class="form-control pl-0"
+                      [(ngModel)]="data.Alias"
+                      placeholder="Enter brand"
+                      [ngModelOptions]="{ standalone: true }"
+                      [readonly]="!data?.editable"
+                    />
+                    <img
+                      src="assets/images/edit.svg"
+                      *ngIf="!data?.editable"
+                      class="img-fluid"
+                      (click)="data.editable = true"
+                    />
+                    <button class="sp-btn" *ngIf="data?.editable" (click)="updateAlias(data, i)">Save</button>
+                  </div>
+                  <button class="btn button-ml w-100 mb-2">{{ data.Size }} ML</button>
+                  <div class="form-row">
+                    <div class="form-group quality mt-4 col-6">
+                      <label class="">{{ displayText }} (Quantity)</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        [id]="headerData['quantity'] + i"
+                        [(ngModel)]="data[headerData['quantity']]"
+                        [ngModelOptions]="{ standalone: true }"
+                        (keypress)="keyPressAlphaNumeric($event)"
+                        (focus)="onFocus(headerData['quantity'], i)"
+                        (blur)="InputEdited(data, headerData['quantity'], i, 'qty', headerData)"
+                        placeholder=""
+                      />
+                      <!-- data[headerData['quantity']] -->
+                      <p *ngIf="registerType !== 'M' && displayStock">
+                        Stock on Hand: {{ data.PurchaseQTY + data.OpenStockQTY }}QTY
+                      </p>
+                      <p *ngIf="registerType === 'M' && displayStock">
+                        Stock on Hand: {{ data.PurchaseQTY + data.OpenStockQTY }}QTY {{ data.OpenStockML }}ml
+                      </p>
+                    </div>
+
+                    <div class="form-group quality mt-4 col-6" *ngIf="registerType === 'M'">
+                      <label class="">{{ displayText }} (ML)</label>
+                      <input
+                        type="text"
+                        [id]="headerData['ml'] + i"
+                        class="form-control"
+                        [(ngModel)]="data[headerData['ml']]"
+                        [ngModelOptions]="{ standalone: true }"
+                        (keypress)="keyPressAlphaNumeric($event)"
+                        (focus)="onFocus(headerData['ml'], i)"
+                        (blur)="InputEdited(data, headerData['ml'], i, 'ml', headerData)"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+  </div>
+  <!-- <div class="text-center form-submit">
+    <p>Entered: {{enteredLen}} To | be Entered: {{ resultArray.length  - enteredLen }}</p>
+    <button class="sp-btn px-4" (click)="submitSalesData()">View and Submit</button>
+  </div> -->
+</div>
+<div class="col-md-12 slider-details" *ngIf="resultArray.length === 0">
+  <div class="text-center form-submit">
+    <p>No Data Found</p>
+  </div>
+</div>

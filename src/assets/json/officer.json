@@ -1,0 +1,93 @@
+{
+  "notUpdatedStores": [
+    {
+      "id": 1,
+      "className": "",
+      "headerName": "Date",
+      "fieldName": "Date",
+      "isDate": true,
+      "isSort": true
+    },
+    {
+      "id": 2,
+      "className": "",
+      "headerName": "Licensee Name",
+      "fieldName": "Name"
+    },
+    {
+      "id": 3,
+      "className": "",
+      "headerName": "License Category",
+      "fieldName": "LicenseType",
+      "isSort": true
+    },
+    {
+      "id": 4,
+      "className": "",
+      "headerName": "Status",
+      "fieldName": "status",
+      "isSort": true
+    }
+  ],
+  "purchaseOrders": [
+    {
+      "id": 1,
+      "className": "",
+      "headerName": "Date",
+      "fieldName": "InvoiceDate",
+      "isDate": true,
+      "isSort": true
+    },
+    {
+      "id": 2,
+      "className": "",
+      "headerName": "Licensee Name",
+      "fieldName": "Name"
+    },
+    {
+      "id": 3,
+      "className": "",
+      "headerName": "License Category",
+      "fieldName": "LicenseType",
+      "isSort": true
+    }
+  ],
+  "storeProfile": [
+    {
+      "id": 1,
+      "className": "",
+      "headerName": "Store Name",
+      "fieldName": "Name",
+      "IsRouting": true
+    },
+    {
+      "id": 2,
+      "className": "",
+      "headerName": "Licensee Category",
+      "fieldName": "LicenseType"
+    },
+    {
+      "id": 3,
+      "className": "",
+      "headerName": "Division",
+      "fieldName": "divisiondescription",
+      "isSort": true
+    },
+    {
+      "id": 4,
+      "className": "",
+      "headerName": "District",
+      "fieldName": "districtdescription",
+      "isSort": true
+    },
+    {
+      "id": 5,
+      "className": "",
+      "headerName": "Store Location",
+      "isAddress": true,
+      "fieldName": "Address",
+      "latField": "StoreLocationLAT",
+      "lngField": "StoreLocationLON"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+<div class="register-process">
+  <div class="process-col purchase-col" [ngClass]="{ active: activePuchase }">
+    <div class="process-iconset">
+      <div class="purchase-icon"></div>
+    </div>
+    <p>Purchase</p>
+  </div>
+  <div class="process-col sales-col" *ngIf="!stock" [ngClass]="{ active: activeSales }">
+    <div class="process-iconset">
+      <div class="sales-icon"></div>
+    </div>
+    <p>Sales</p>
+  </div>
+  <div class="process-col sales-col" *ngIf="stock" [ngClass]="{ active: activeStock }">
+    <div class="process-iconset">
+      <div class="sales-icon"></div>
+    </div>
+    <p>Stock</p>
+  </div>
+</div>

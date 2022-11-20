@@ -1,0 +1,80 @@
+<section class="alert-component pt-4">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 form-row">
+        <div class="col-md-6">
+          <h3>Excise List</h3>
+        </div>
+        <div class="col-md-6">
+          <div class="col-md-6 form-group float-right">
+            <label for="category" class="disp-inline">License Category</label>
+            <select
+              id="category"
+              class="form-control"
+              [(ngModel)]="category"
+              [ngModelOptions]="{ standalone: true }"
+              (change)="onDropDownChanges()"
+            >
+              <option value="" selected>Select action</option>
+              <option *ngFor="let category of licenseeCategoryList" [value]="category.LicenseType">
+                {{ category.LicenseType }}
+              </option>
+            </select>
+          </div>
+          <div class="col-md-6 form-group float-right">
+            <label for="action" class="disp-inline">Range</label>
+            <select
+              id="action"
+              class="form-control"
+              [(ngModel)]="range"
+              [ngModelOptions]="{ standalone: true }"
+              (change)="onDropDownChanges()"
+            >
+              <option value="" selected>Select action</option>
+              <option *ngFor="let range of rangeList" [value]="range">{{ range }}</option>
+            </select>
+          </div>
+          <!-- <div class="pad-t-30">
+                    <i class="fas fa-sync cp" ></i>
+                  </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reports-analytics pt-lg-5 pt-0">
+  <div class="container-fluid">
+    <!-- <div class="row">
+        <div class="col-md-12 form-row ml-1">
+          <div class="form-group">
+            <label for="action" class="disp-inline">Licensee Name</label>
+            <select id="action" class="form-control" [(ngModel)]="range" [ngModelOptions]="{ standalone: true }">
+              <option value="" selected>Select action</option>
+              <option *ngFor="let range of rangeList" [value]="range">{{ range }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="category" class="disp-inline">License Category</label>
+            <select id="category" class="form-control" [(ngModel)]="category" [ngModelOptions]="{ standalone: true }">
+              <option value="" selected>Select action</option>
+              <option *ngFor="let category of licenseeCategoryList">{{ category.LicenseType }}</option>
+            </select>
+          </div>
+          <div class="pad-t-30">
+            <i class="fas fa-sync cp" ></i>
+          </div>
+        </div>
+      </div> -->
+    <app-sp-table
+      [tableArray]="resultArray"
+      [headerData]="headerArray"
+      (onPageChanges)="onPageChanges($event)"
+      [Ispagination]="true"
+      [page]="page"
+      [totalCount]="totalCount"
+      (onRouteSelect)="routeTo($event)"
+      (onAddressSelect)="openMap($event)"
+    ></app-sp-table>
+  </div>
+</section>
